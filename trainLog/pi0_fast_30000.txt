@@ -1,0 +1,122 @@
+NFO 2025-08-18 18:09:35 ts/train.py:144 Creating optimizer and scheduler
+INFO 2025-08-18 18:09:35 ts/train.py:156 Output dir: outputs/train/pi0fast_base_wahser01
+INFO 2025-08-18 18:09:35 ts/train.py:159 cfg.steps=30000 (30K)
+INFO 2025-08-18 18:09:35 ts/train.py:160 dataset.num_frames=43927 (44K)
+INFO 2025-08-18 18:09:35 ts/train.py:161 dataset.num_episodes=50
+INFO 2025-08-18 18:09:35 ts/train.py:162 num_learnable_params=1984245760 (2B)
+INFO 2025-08-18 18:09:35 ts/train.py:163 num_total_params=2923335444 (3B)
+INFO 2025-08-18 18:09:35 ts/train.py:202 Start offline training on a fixed dataset
+⚠️  DISCLAIMER: The PI0FAST model is ported from JAX by the Hugging Face team. 
+   It is not expected to perform as well as the original implementation. 
+   Original implementation: https://github.com/Physical-Intelligence/openpi
+You're using a GemmaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+You're using a GemmaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+INFO 2025-08-18 18:12:04 ts/train.py:232 step:500 smpl:1K ep:1 epch:0.02 loss:3.732 grdn:34.585 lr:2.5e-05 updt_s:0.297 data_s:0.001
+INFO 2025-08-18 18:14:32 ts/train.py:232 step:1K smpl:2K ep:2 epch:0.05 loss:2.215 grdn:17.905 lr:7.5e-05 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 18:14:32 ts/train.py:241 Checkpoint policy after step 1000
+INFO 2025-08-18 18:17:14 ts/train.py:232 step:2K smpl:3K ep:3 epch:0.07 loss:2.371 grdn:37.955 lr:1.0e-04 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 18:19:42 ts/train.py:232 step:2K smpl:4K ep:5 epch:0.09 loss:2.056 grdn:15.076 lr:9.9e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:19:42 ts/train.py:241 Checkpoint policy after step 2000
+INFO 2025-08-18 18:22:23 ts/train.py:232 step:2K smpl:5K ep:6 epch:0.11 loss:1.997 grdn:14.820 lr:9.9e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:24:51 ts/train.py:232 step:3K smpl:6K ep:7 epch:0.14 loss:1.905 grdn:13.534 lr:9.8e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:24:51 ts/train.py:241 Checkpoint policy after step 3000
+INFO 2025-08-18 18:27:33 ts/train.py:232 step:4K smpl:7K ep:8 epch:0.16 loss:1.877 grdn:13.157 lr:9.7e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:30:01 ts/train.py:232 step:4K smpl:8K ep:9 epch:0.18 loss:1.828 grdn:12.913 lr:9.6e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:30:01 ts/train.py:241 Checkpoint policy after step 4000
+INFO 2025-08-18 18:32:42 ts/train.py:232 step:4K smpl:9K ep:10 epch:0.20 loss:1.788 grdn:13.232 lr:9.5e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:35:10 ts/train.py:232 step:5K smpl:10K ep:11 epch:0.23 loss:1.769 grdn:13.145 lr:9.4e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:35:10 ts/train.py:241 Checkpoint policy after step 5000
+INFO 2025-08-18 18:37:51 ts/train.py:232 step:6K smpl:11K ep:13 epch:0.25 loss:1.739 grdn:12.610 lr:9.3e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:40:19 ts/train.py:232 step:6K smpl:12K ep:14 epch:0.27 loss:1.719 grdn:12.794 lr:9.1e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:40:19 ts/train.py:241 Checkpoint policy after step 6000
+INFO 2025-08-18 18:43:01 ts/train.py:232 step:6K smpl:13K ep:15 epch:0.30 loss:1.673 grdn:12.247 lr:9.0e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 18:45:28 ts/train.py:232 step:7K smpl:14K ep:16 epch:0.32 loss:1.646 grdn:10.678 lr:8.8e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:45:28 ts/train.py:241 Checkpoint policy after step 7000
+INFO 2025-08-18 18:48:10 ts/train.py:232 step:8K smpl:15K ep:17 epch:0.34 loss:1.624 grdn:10.855 lr:8.7e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 18:50:37 ts/train.py:232 step:8K smpl:16K ep:18 epch:0.36 loss:1.639 grdn:11.464 lr:8.5e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 18:50:37 ts/train.py:241 Checkpoint policy after step 8000
+INFO 2025-08-18 18:53:18 ts/train.py:232 step:8K smpl:17K ep:19 epch:0.39 loss:1.562 grdn:10.703 lr:8.3e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 18:55:46 ts/train.py:232 step:9K smpl:18K ep:20 epch:0.41 loss:1.570 grdn:11.562 lr:8.1e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 18:55:46 ts/train.py:241 Checkpoint policy after step 9000
+INFO 2025-08-18 18:58:28 ts/train.py:232 step:10K smpl:19K ep:22 epch:0.43 loss:1.532 grdn:10.225 lr:7.9e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 19:00:55 ts/train.py:232 step:10K smpl:20K ep:23 epch:0.46 loss:1.514 grdn:10.614 lr:7.7e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:00:55 ts/train.py:241 Checkpoint policy after step 10000
+INFO 2025-08-18 19:03:36 ts/train.py:232 step:10K smpl:21K ep:24 epch:0.48 loss:1.462 grdn:9.984 lr:7.5e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 19:06:04 ts/train.py:232 step:11K smpl:22K ep:25 epch:0.50 loss:1.435 grdn:10.736 lr:7.2e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 19:06:04 ts/train.py:241 Checkpoint policy after step 11000
+INFO 2025-08-18 19:08:46 ts/train.py:232 step:12K smpl:23K ep:26 epch:0.52 loss:1.427 grdn:9.799 lr:7.0e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:11:13 ts/train.py:232 step:12K smpl:24K ep:27 epch:0.55 loss:1.399 grdn:9.582 lr:6.8e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:11:13 ts/train.py:241 Checkpoint policy after step 12000
+INFO 2025-08-18 19:13:55 ts/train.py:232 step:12K smpl:25K ep:28 epch:0.57 loss:1.340 grdn:9.529 lr:6.5e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 19:16:22 ts/train.py:232 step:13K smpl:26K ep:30 epch:0.59 loss:1.304 grdn:10.217 lr:6.3e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:16:22 ts/train.py:241 Checkpoint policy after step 13000
+INFO 2025-08-18 19:19:04 ts/train.py:232 step:14K smpl:27K ep:31 epch:0.61 loss:1.309 grdn:10.254 lr:6.0e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 19:21:31 ts/train.py:232 step:14K smpl:28K ep:32 epch:0.64 loss:1.277 grdn:9.280 lr:5.8e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:21:31 ts/train.py:241 Checkpoint policy after step 14000
+INFO 2025-08-18 19:24:13 ts/train.py:232 step:14K smpl:29K ep:33 epch:0.66 loss:1.223 grdn:9.323 lr:5.5e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 19:26:40 ts/train.py:232 step:15K smpl:30K ep:34 epch:0.68 loss:1.205 grdn:9.489 lr:5.3e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:26:40 ts/train.py:241 Checkpoint policy after step 15000
+INFO 2025-08-18 19:29:22 ts/train.py:232 step:16K smpl:31K ep:35 epch:0.71 loss:1.211 grdn:9.824 lr:5.0e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 19:31:49 ts/train.py:232 step:16K smpl:32K ep:36 epch:0.73 loss:1.176 grdn:9.688 lr:4.7e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:31:49 ts/train.py:241 Checkpoint policy after step 16000
+INFO 2025-08-18 19:34:31 ts/train.py:232 step:16K smpl:33K ep:38 epch:0.75 loss:1.174 grdn:9.416 lr:4.5e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 19:36:58 ts/train.py:232 step:17K smpl:34K ep:39 epch:0.77 loss:1.120 grdn:9.607 lr:4.2e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:36:58 ts/train.py:241 Checkpoint policy after step 17000
+INFO 2025-08-18 19:39:40 ts/train.py:232 step:18K smpl:35K ep:40 epch:0.80 loss:1.088 grdn:8.859 lr:4.0e-05 updt_s:0.294 data_s:0.000
+INFO 2025-08-18 19:42:07 ts/train.py:232 step:18K smpl:36K ep:41 epch:0.82 loss:1.113 grdn:9.490 lr:3.7e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:42:07 ts/train.py:241 Checkpoint policy after step 18000
+INFO 2025-08-18 19:44:49 ts/train.py:232 step:18K smpl:37K ep:42 epch:0.84 loss:1.085 grdn:9.678 lr:3.5e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:47:17 ts/train.py:232 step:19K smpl:38K ep:43 epch:0.87 loss:1.016 grdn:9.684 lr:3.3e-05 updt_s:0.295 data_s:0.000
+INFO 2025-08-18 19:47:17 ts/train.py:241 Checkpoint policy after step 19000
+INFO 2025-08-18 19:49:59 ts/train.py:232 step:20K smpl:39K ep:44 epch:0.89 loss:1.050 grdn:10.003 lr:3.0e-05 updt_s:0.297 data_s:0.000
+INFO 2025-08-18 19:52:32 ts/train.py:232 step:20K smpl:40K ep:46 epch:0.91 loss:1.019 grdn:9.807 lr:2.8e-05 updt_s:0.305 data_s:0.000
+INFO 2025-08-18 19:52:32 ts/train.py:241 Checkpoint policy after step 20000
+INFO 2025-08-18 19:55:51 ts/train.py:232 step:20K smpl:41K ep:47 epch:0.93 loss:1.030 grdn:9.977 lr:2.6e-05 updt_s:0.368 data_s:0.000
+INFO 2025-08-18 19:58:57 ts/train.py:232 step:21K smpl:42K ep:48 epch:0.96 loss:1.006 grdn:10.229 lr:2.4e-05 updt_s:0.373 data_s:0.000
+INFO 2025-08-18 19:58:57 ts/train.py:241 Checkpoint policy after step 21000
+INFO 2025-08-18 20:02:18 ts/train.py:232 step:22K smpl:43K ep:49 epch:0.98 loss:0.990 grdn:10.275 lr:2.2e-05 updt_s:0.373 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-18 20:05:26 ts/train.py:232 step:22K smpl:44K ep:50 epch:1.00 loss:0.968 grdn:10.266 lr:2.0e-05 updt_s:0.374 data_s:0.001
+INFO 2025-08-18 20:05:26 ts/train.py:241 Checkpoint policy after step 22000
+INFO 2025-08-18 20:08:48 ts/train.py:232 step:22K smpl:45K ep:51 epch:1.02 loss:0.844 grdn:9.603 lr:1.8e-05 updt_s:0.375 data_s:0.000
+INFO 2025-08-18 20:11:55 ts/train.py:232 step:23K smpl:46K ep:52 epch:1.05 loss:0.850 grdn:10.359 lr:1.6e-05 updt_s:0.375 data_s:0.000
+INFO 2025-08-18 20:11:55 ts/train.py:241 Checkpoint policy after step 23000
+INFO 2025-08-18 20:15:17 ts/train.py:232 step:24K smpl:47K ep:53 epch:1.07 loss:0.807 grdn:9.923 lr:1.4e-05 updt_s:0.375 data_s:0.000
+INFO 2025-08-18 20:18:25 ts/train.py:232 step:24K smpl:48K ep:55 epch:1.09 loss:0.809 grdn:10.380 lr:1.3e-05 updt_s:0.374 data_s:0.000
+INFO 2025-08-18 20:18:25 ts/train.py:241 Checkpoint policy after step 24000
+INFO 2025-08-18 20:21:14 ts/train.py:232 step:24K smpl:49K ep:56 epch:1.12 loss:0.797 grdn:9.988 lr:1.1e-05 updt_s:0.311 data_s:0.000
+INFO 2025-08-18 20:23:43 ts/train.py:232 step:25K smpl:50K ep:57 epch:1.14 loss:0.834 grdn:10.668 lr:9.7e-06 updt_s:0.297 data_s:0.000
+INFO 2025-08-18 20:23:43 ts/train.py:241 Checkpoint policy after step 25000
+INFO 2025-08-18 20:26:25 ts/train.py:232 step:26K smpl:51K ep:58 epch:1.16 loss:0.822 grdn:10.261 lr:8.4e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:28:54 ts/train.py:232 step:26K smpl:52K ep:59 epch:1.18 loss:0.845 grdn:10.588 lr:7.3e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:28:54 ts/train.py:241 Checkpoint policy after step 26000
+INFO 2025-08-18 20:31:36 ts/train.py:232 step:26K smpl:53K ep:60 epch:1.21 loss:0.815 grdn:10.315 lr:6.2e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:34:05 ts/train.py:232 step:27K smpl:54K ep:61 epch:1.23 loss:0.790 grdn:10.355 lr:5.3e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:34:05 ts/train.py:241 Checkpoint policy after step 27000
+INFO 2025-08-18 20:36:47 ts/train.py:232 step:28K smpl:55K ep:63 epch:1.25 loss:0.810 grdn:10.831 lr:4.5e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:39:16 ts/train.py:232 step:28K smpl:56K ep:64 epch:1.27 loss:0.800 grdn:10.178 lr:3.9e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:39:16 ts/train.py:241 Checkpoint policy after step 28000
+INFO 2025-08-18 20:41:58 ts/train.py:232 step:28K smpl:57K ep:65 epch:1.30 loss:0.820 grdn:10.438 lr:3.3e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:44:26 ts/train.py:232 step:29K smpl:58K ep:66 epch:1.32 loss:0.809 grdn:10.629 lr:2.9e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:44:26 ts/train.py:241 Checkpoint policy after step 29000
+INFO 2025-08-18 20:47:09 ts/train.py:232 step:30K smpl:59K ep:67 epch:1.34 loss:0.810 grdn:10.301 lr:2.7e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:49:37 ts/train.py:232 step:30K smpl:60K ep:68 epch:1.37 loss:0.797 grdn:10.378 lr:2.5e-06 updt_s:0.296 data_s:0.000
+INFO 2025-08-18 20:49:37 ts/train.py:241 Checkpoint policy after step 30000
+INFO 2025-08-18 20:49:51 ts/train.py:283 End of training
+
+

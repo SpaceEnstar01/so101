@@ -1,0 +1,684 @@
+(lerobot) dreame@x:~/zexuan/projects/so101/lerobot/src/lerobot$ nohup python scripts/train.py \
+>   --dataset.repo_id /home/dreame/zexuan/projects/so101/lerobot/src/lerobot/data/grasp002 \
+>   --policy.type smolvla \
+>   --output_dir outputs/train/grasp100 \
+>   --job_name grasp \
+>   --policy.device cuda \
+>   --batch_size 16 \
+>   --steps 80000 \
+>   --save_freq 2000 \
+>   --eval_freq 2000 \
+>   --log_freq 1000 \
+>   > train.log 2>&1 &
+[1] 25051
+(lerobot) dreame@x:~/zexuan/projects/so101/lerobot/src/lerobot$ tail -f train.log
+ 'wandb': {'disable_artifact': False,
+           'enable': False,
+           'entity': None,
+           'mode': None,
+           'notes': None,
+           'project': 'lerobot',
+           'run_id': None}}
+INFO 2025-08-12 17:58:59 ts/train.py:117 Logs will be saved locally.
+INFO 2025-08-12 17:58:59 ts/train.py:127 Creating dataset
+INFO 2025-08-12 17:59:00 ts/train.py:138 Creating policy
+INFO 2025-08-12 17:59:18 ts/train.py:144 Creating optimizer and scheduler
+INFO 2025-08-12 17:59:18 ts/train.py:156 Output dir: outputs/train/grasp100
+INFO 2025-08-12 17:59:18 ts/train.py:159 cfg.steps=80000 (80K)
+INFO 2025-08-12 17:59:18 ts/train.py:160 dataset.num_frames=38325 (38K)
+INFO 2025-08-12 17:59:18 ts/train.py:161 dataset.num_episodes=50
+INFO 2025-08-12 17:59:18 ts/train.py:162 num_learnable_params=99880992 (100M)
+INFO 2025-08-12 17:59:18 ts/train.py:163 num_total_params=450046212 (450M)
+INFO 2025-08-12 17:59:18 ts/train.py:202 Start offline training on a fixed dataset
+Reducing the number of VLM layers to 16 ...
+INFO 2025-08-12 18:03:46 ts/train.py:232 step:1K smpl:16K ep:21 epch:0.42 loss:0.445 grdn:4.610 lr:5.0e-05 updt_s:0.266 data_s:0.001
+INFO 2025-08-12 18:08:11 ts/train.py:232 step:2K smpl:32K ep:42 epch:0.83 loss:0.110 grdn:1.334 lr:9.9e-05 updt_s:0.264 data_s:0.000
+INFO 2025-08-12 18:08:11 ts/train.py:241 Checkpoint policy after step 2000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 18:12:38 ts/train.py:232 step:3K smpl:48K ep:63 epch:1.25 loss:0.084 grdn:0.780 lr:9.8e-05 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 18:17:08 ts/train.py:232 step:4K smpl:64K ep:83 epch:1.67 loss:0.075 grdn:0.635 lr:9.7e-05 updt_s:0.269 data_s:0.000
+INFO 2025-08-12 18:17:08 ts/train.py:241 Checkpoint policy after step 4000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 18:21:39 ts/train.py:232 step:5K smpl:80K ep:104 epch:2.09 loss:0.068 grdn:0.566 lr:9.5e-05 updt_s:0.268 data_s:0.001
+INFO 2025-08-12 18:26:04 ts/train.py:232 step:6K smpl:96K ep:125 epch:2.50 loss:0.063 grdn:0.501 lr:9.2e-05 updt_s:0.264 data_s:0.000
+INFO 2025-08-12 18:26:04 ts/train.py:241 Checkpoint policy after step 6000
+INFO 2025-08-12 18:30:30 ts/train.py:232 step:7K smpl:112K ep:146 epch:2.92 loss:0.058 grdn:0.473 lr:8.9e-05 updt_s:0.264 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 18:34:55 ts/train.py:232 step:8K smpl:128K ep:167 epch:3.34 loss:0.054 grdn:0.441 lr:8.6e-05 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 18:34:55 ts/train.py:241 Checkpoint policy after step 8000
+INFO 2025-08-12 18:39:21 ts/train.py:232 step:9K smpl:144K ep:188 epch:3.76 loss:0.052 grdn:0.423 lr:8.2e-05 updt_s:0.264 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 18:43:46 ts/train.py:232 step:10K smpl:160K ep:209 epch:4.17 loss:0.048 grdn:0.395 lr:7.8e-05 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 18:43:46 ts/train.py:241 Checkpoint policy after step 10000
+INFO 2025-08-12 18:48:12 ts/train.py:232 step:11K smpl:176K ep:230 epch:4.59 loss:0.045 grdn:0.375 lr:7.3e-05 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 18:52:37 ts/train.py:232 step:12K smpl:192K ep:250 epch:5.01 loss:0.043 grdn:0.363 lr:6.9e-05 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 18:52:37 ts/train.py:241 Checkpoint policy after step 12000
+INFO 2025-08-12 18:57:03 ts/train.py:232 step:13K smpl:208K ep:271 epch:5.43 loss:0.039 grdn:0.347 lr:6.4e-05 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 19:01:28 ts/train.py:232 step:14K smpl:224K ep:292 epch:5.84 loss:0.037 grdn:0.327 lr:5.9e-05 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 19:01:28 ts/train.py:241 Checkpoint policy after step 14000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 19:05:54 ts/train.py:232 step:15K smpl:240K ep:313 epch:6.26 loss:0.035 grdn:0.318 lr:5.4e-05 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 19:10:18 ts/train.py:232 step:16K smpl:256K ep:334 epch:6.68 loss:0.032 grdn:0.300 lr:4.9e-05 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 19:10:18 ts/train.py:241 Checkpoint policy after step 16000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 19:14:45 ts/train.py:232 step:17K smpl:272K ep:355 epch:7.10 loss:0.031 grdn:0.290 lr:4.4e-05 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 19:19:09 ts/train.py:232 step:18K smpl:288K ep:376 epch:7.51 loss:0.029 grdn:0.284 lr:3.9e-05 updt_s:0.264 data_s:0.000
+INFO 2025-08-12 19:19:09 ts/train.py:241 Checkpoint policy after step 18000
+INFO 2025-08-12 19:23:35 ts/train.py:232 step:19K smpl:304K ep:397 epch:7.93 loss:0.028 grdn:0.272 lr:3.4e-05 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 19:28:00 ts/train.py:232 step:20K smpl:320K ep:417 epch:8.35 loss:0.027 grdn:0.266 lr:2.9e-05 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 19:28:00 ts/train.py:241 Checkpoint policy after step 20000
+INFO 2025-08-12 19:32:26 ts/train.py:232 step:21K smpl:336K ep:438 epch:8.77 loss:0.026 grdn:0.257 lr:2.5e-05 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 19:36:51 ts/train.py:232 step:22K smpl:352K ep:459 epch:9.18 loss:0.026 grdn:0.255 lr:2.1e-05 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 19:36:51 ts/train.py:241 Checkpoint policy after step 22000
+INFO 2025-08-12 19:41:17 ts/train.py:232 step:23K smpl:368K ep:480 epch:9.60 loss:0.024 grdn:0.244 lr:1.7e-05 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 19:45:41 ts/train.py:232 step:24K smpl:384K ep:501 epch:10.02 loss:0.025 grdn:0.245 lr:1.3e-05 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 19:45:41 ts/train.py:241 Checkpoint policy after step 24000
+INFO 2025-08-12 19:50:07 ts/train.py:232 step:25K smpl:400K ep:522 epch:10.44 loss:0.024 grdn:0.237 lr:1.0e-05 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 19:54:31 ts/train.py:232 step:26K smpl:416K ep:543 epch:10.85 loss:0.024 grdn:0.234 lr:7.8e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 19:54:31 ts/train.py:241 Checkpoint policy after step 26000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 19:58:57 ts/train.py:232 step:27K smpl:432K ep:564 epch:11.27 loss:0.023 grdn:0.230 lr:5.8e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 20:03:21 ts/train.py:232 step:28K smpl:448K ep:584 epch:11.69 loss:0.024 grdn:0.232 lr:4.2e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 20:03:21 ts/train.py:241 Checkpoint policy after step 28000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 20:07:47 ts/train.py:232 step:29K smpl:464K ep:605 epch:12.11 loss:0.023 grdn:0.229 lr:3.1e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 20:12:12 ts/train.py:232 step:30K smpl:480K ep:626 epch:12.52 loss:0.023 grdn:0.228 lr:2.6e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 20:12:12 ts/train.py:241 Checkpoint policy after step 30000
+INFO 2025-08-12 20:16:38 ts/train.py:232 step:31K smpl:496K ep:647 epch:12.94 loss:0.023 grdn:0.227 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 20:21:02 ts/train.py:232 step:32K smpl:512K ep:668 epch:13.36 loss:0.023 grdn:0.233 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 20:21:02 ts/train.py:241 Checkpoint policy after step 32000
+INFO 2025-08-12 20:25:28 ts/train.py:232 step:33K smpl:528K ep:689 epch:13.78 loss:0.023 grdn:0.228 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 20:29:53 ts/train.py:232 step:34K smpl:544K ep:710 epch:14.19 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 20:29:53 ts/train.py:241 Checkpoint policy after step 34000
+INFO 2025-08-12 20:34:19 ts/train.py:232 step:35K smpl:560K ep:731 epch:14.61 loss:0.023 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 20:38:43 ts/train.py:232 step:36K smpl:576K ep:751 epch:15.03 loss:0.024 grdn:0.231 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 20:38:43 ts/train.py:241 Checkpoint policy after step 36000
+INFO 2025-08-12 20:43:09 ts/train.py:232 step:37K smpl:592K ep:772 epch:15.45 loss:0.023 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 20:47:33 ts/train.py:232 step:38K smpl:608K ep:793 epch:15.86 loss:0.023 grdn:0.226 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 20:47:33 ts/train.py:241 Checkpoint policy after step 38000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 20:51:59 ts/train.py:232 step:39K smpl:624K ep:814 epch:16.28 loss:0.023 grdn:0.227 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 20:56:23 ts/train.py:232 step:40K smpl:640K ep:835 epch:16.70 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 20:56:23 ts/train.py:241 Checkpoint policy after step 40000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 21:00:49 ts/train.py:232 step:41K smpl:656K ep:856 epch:17.12 loss:0.023 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 21:05:13 ts/train.py:232 step:42K smpl:672K ep:877 epch:17.53 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 21:05:13 ts/train.py:241 Checkpoint policy after step 42000
+INFO 2025-08-12 21:09:39 ts/train.py:232 step:43K smpl:688K ep:898 epch:17.95 loss:0.023 grdn:0.231 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 21:14:03 ts/train.py:232 step:44K smpl:704K ep:918 epch:18.37 loss:0.023 grdn:0.232 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 21:14:03 ts/train.py:241 Checkpoint policy after step 44000
+INFO 2025-08-12 21:18:29 ts/train.py:232 step:45K smpl:720K ep:939 epch:18.79 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 21:22:53 ts/train.py:232 step:46K smpl:736K ep:960 epch:19.20 loss:0.023 grdn:0.228 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 21:22:53 ts/train.py:241 Checkpoint policy after step 46000
+INFO 2025-08-12 21:27:19 ts/train.py:232 step:47K smpl:752K ep:981 epch:19.62 loss:0.023 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 21:31:43 ts/train.py:232 step:48K smpl:768K ep:1K epch:20.04 loss:0.023 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 21:31:43 ts/train.py:241 Checkpoint policy after step 48000
+INFO 2025-08-12 21:36:09 ts/train.py:232 step:49K smpl:784K ep:1K epch:20.46 loss:0.023 grdn:0.227 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 21:40:33 ts/train.py:232 step:50K smpl:800K ep:1K epch:20.87 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 21:40:33 ts/train.py:241 Checkpoint policy after step 50000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 21:44:59 ts/train.py:232 step:51K smpl:816K ep:1K epch:21.29 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 21:49:23 ts/train.py:232 step:52K smpl:832K ep:1K epch:21.71 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 21:49:23 ts/train.py:241 Checkpoint policy after step 52000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 21:53:49 ts/train.py:232 step:53K smpl:848K ep:1K epch:22.13 loss:0.023 grdn:0.231 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 21:58:14 ts/train.py:232 step:54K smpl:864K ep:1K epch:22.54 loss:0.023 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 21:58:14 ts/train.py:241 Checkpoint policy after step 54000
+INFO 2025-08-12 22:02:39 ts/train.py:232 step:55K smpl:880K ep:1K epch:22.96 loss:0.023 grdn:0.231 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 22:07:04 ts/train.py:232 step:56K smpl:896K ep:1K epch:23.38 loss:0.023 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 22:07:04 ts/train.py:241 Checkpoint policy after step 56000
+INFO 2025-08-12 22:11:29 ts/train.py:232 step:57K smpl:912K ep:1K epch:23.80 loss:0.023 grdn:0.227 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 22:15:54 ts/train.py:232 step:58K smpl:928K ep:1K epch:24.21 loss:0.023 grdn:0.231 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 22:15:54 ts/train.py:241 Checkpoint policy after step 58000
+INFO 2025-08-12 22:20:20 ts/train.py:232 step:59K smpl:944K ep:1K epch:24.63 loss:0.023 grdn:0.228 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 22:24:44 ts/train.py:232 step:60K smpl:960K ep:1K epch:25.05 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 22:24:44 ts/train.py:241 Checkpoint policy after step 60000
+INFO 2025-08-12 22:29:10 ts/train.py:232 step:61K smpl:976K ep:1K epch:25.47 loss:0.023 grdn:0.232 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 22:33:33 ts/train.py:232 step:62K smpl:992K ep:1K epch:25.88 loss:0.023 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 22:33:33 ts/train.py:241 Checkpoint policy after step 62000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 22:38:00 ts/train.py:232 step:63K smpl:1M ep:1K epch:26.30 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 22:42:24 ts/train.py:232 step:64K smpl:1M ep:1K epch:26.72 loss:0.023 grdn:0.233 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 22:42:24 ts/train.py:241 Checkpoint policy after step 64000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 22:46:50 ts/train.py:232 step:65K smpl:1M ep:1K epch:27.14 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 22:51:15 ts/train.py:232 step:66K smpl:1M ep:1K epch:27.55 loss:0.023 grdn:0.232 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 22:51:15 ts/train.py:241 Checkpoint policy after step 66000
+INFO 2025-08-12 22:55:40 ts/train.py:232 step:67K smpl:1M ep:1K epch:27.97 loss:0.023 grdn:0.231 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 23:00:05 ts/train.py:232 step:68K smpl:1M ep:1K epch:28.39 loss:0.023 grdn:0.227 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 23:00:05 ts/train.py:241 Checkpoint policy after step 68000
+INFO 2025-08-12 23:04:30 ts/train.py:232 step:69K smpl:1M ep:1K epch:28.81 loss:0.023 grdn:0.235 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 23:08:55 ts/train.py:232 step:70K smpl:1M ep:1K epch:29.22 loss:0.023 grdn:0.231 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 23:08:55 ts/train.py:241 Checkpoint policy after step 70000
+INFO 2025-08-12 23:13:20 ts/train.py:232 step:71K smpl:1M ep:1K epch:29.64 loss:0.023 grdn:0.234 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 23:17:45 ts/train.py:232 step:72K smpl:1M ep:2K epch:30.06 loss:0.023 grdn:0.231 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 23:17:45 ts/train.py:241 Checkpoint policy after step 72000
+INFO 2025-08-12 23:22:10 ts/train.py:232 step:73K smpl:1M ep:2K epch:30.48 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 23:26:34 ts/train.py:232 step:74K smpl:1M ep:2K epch:30.89 loss:0.022 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 23:26:34 ts/train.py:241 Checkpoint policy after step 74000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 23:31:01 ts/train.py:232 step:75K smpl:1M ep:2K epch:31.31 loss:0.023 grdn:0.234 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 23:35:25 ts/train.py:232 step:76K smpl:1M ep:2K epch:31.73 loss:0.023 grdn:0.229 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 23:35:25 ts/train.py:241 Checkpoint policy after step 76000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 23:39:51 ts/train.py:232 step:77K smpl:1M ep:2K epch:32.15 loss:0.023 grdn:0.232 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 23:44:16 ts/train.py:232 step:78K smpl:1M ep:2K epch:32.56 loss:0.023 grdn:0.228 lr:2.5e-06 updt_s:0.263 data_s:0.000
+INFO 2025-08-12 23:44:16 ts/train.py:241 Checkpoint policy after step 78000
+INFO 2025-08-12 23:48:41 ts/train.py:232 step:79K smpl:1M ep:2K epch:32.98 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.000
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+INFO 2025-08-12 23:53:06 ts/train.py:232 step:80K smpl:1M ep:2K epch:33.40 loss:0.023 grdn:0.230 lr:2.5e-06 updt_s:0.263 data_s:0.001
+INFO 2025-08-12 23:53:06 ts/train.py:241 Checkpoint policy after step 80000
+INFO 2025-08-12 23:53:08 ts/train.py:283 End of training
+sudo systemctl status ssh​
+
