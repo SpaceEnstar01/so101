@@ -1,5 +1,15 @@
 
 
+## 🖥️ System Information
+- **Operating System**: Ubuntu 20.04 (via Windows WSL)
+- **GPU**: NVIDIA GeForce RTX 4060, Driver Version 576.52, CUDA 12.9 【Train in RTX4090D 24G or AutoDL platform】
+- **Hardware**: Logitech C920 Webcam, Xuanya hardware robotic arm based on Aloha （https://github.com/Xuanya-Robotics/lerobot）
+
+## 📦 Features
+- Simulation & real-world control
+- Imitation learning & reinforcement learning
+- Dataset collection & analysis
+
 | 模型        | 训练steps | 效果                         | 任务                         | 备注                                                                 |
 |-------------|-----------|------------------------------|------------------------------|----------------------------------------------------------------------|
 | ACT         | 60000     | 很好，几乎100%               | 抓取物品从A到B               |                                                                      |
