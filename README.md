@@ -18,3 +18,14 @@
 | SmolVLA_ba e | 60000     | 很差，可以成功抓起但是很难完成一次 | 抓取衣物从A到洗衣机          | 预训练模型，2万次--拟合                                              |
 | piofast     | 30000     | 效果奇差，连抓取的动作都没有 | 抓取衣物从A到洗衣机          | 预训练模型，3万次才初现拟合，感觉训练少了；piofast模型参数巨大       |
 | ACT         | 100000    | 效果非常好 几乎90%-100%      | 抓取自然衣物从洗衣篮到洗衣机 | 9-10万次拟合，last部署，3个摄像头可以依次将衣服抓取到洗衣机内部     |
+
+
+
+
+## Demo Video
+
+[👉 点击观看 Demo](https://www.youtube.com/shorts/xIPQy-PnsMc)
+
+或者直接嵌入预览（GitHub 不支持直接播放，但会显示缩略图链接）：
+
+[![Demo Video](https://img.youtube.com/vi/xIPQy-PnsMc/0.jpg)](https://www.youtube.com/shorts/xIPQy-PnsMc)
