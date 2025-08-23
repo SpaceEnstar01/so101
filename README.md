@@ -22,10 +22,12 @@
 
 
 
-## Demo Video
+## Demo 视频
 
-[👉 点击观看 Demo](https://www.youtube.com/shorts/xIPQy-PnsMc)
+ 
+[👉 点击观看 Demo 1](https://www.youtube.com/shorts/5soQiujo6fU)
+[👉 点击观看 Demo 2](https://www.youtube.com/shorts/xIPQy-PnsMc) 
 
-或者直接嵌入预览（GitHub 不支持直接播放，但会显示缩略图链接）：
-
-[![Demo Video](https://img.youtube.com/vi/xIPQy-PnsMc/0.jpg)](https://www.youtube.com/shorts/xIPQy-PnsMc)
+点击缩略图跳转到 YouTube：
+[![Demo 1](https://img.youtube.com/vi/5soQiujo6fU/0.jpg)](https://www.youtube.com/shorts/5soQiujo6fU)
+[![Demo 2](https://img.youtube.com/vi/xIPQy-PnsMc/0.jpg)](https://www.youtube.com/shorts/xIPQy-PnsMc)  
