@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# so101/lerobot/src/lerobot/robots/utils.py
 import logging
 from pprint import pformat
 
@@ -37,6 +38,10 @@ def make_robot_from_config(config: RobotConfig) -> Robot:
         from .so101_follower import SO101Follower
 
         return SO101Follower(config)
+    elif config.type == "piper":
+        from .piper.piper import PiperRobot   # 你自己定义的类
+
+        return PiperRobot(config)
     elif config.type == "lekiwi":
         from .lekiwi import LeKiwi
 

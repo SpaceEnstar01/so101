@@ -1,9 +1,5 @@
 
 
-
-
-
-
 | 模型        | 训练steps | 效果                         | 任务                         | 备注                                                                 |
 |-------------|-----------|------------------------------|------------------------------|----------------------------------------------------------------------|
 | ACT         | 60000     | 很好，几乎100%               | 抓取物品从A到B               |                                                                      |
@@ -15,10 +11,13 @@
 
 
 
+## Demo 视频
 
+点击观看 Demo 1:(https://www.youtube.com/shorts/xIPQy-PnsMc) 
+点击观看 Demo 2:(https://www.youtube.com/shorts/5soQiujo6fU)
 
-
-[![Watch the video](https://img.youtube.com/vi/视频ID/hqdefault.jpg)](https://www.youtube.com/watch?v=视频ID)
-
-
+点击缩略图跳转到 YouTube：
+[![Demo 1](https://img.youtube.com/vi/xIPQy-PnsMc/0.jpg)](https://www.youtube.com/shorts/xIPQy-PnsMc) 
+ 
+[![Demo 2](https://img.youtube.com/vi/5soQiujo6fU/0.jpg)](https://www.youtube.com/shorts/5soQiujo6fU)
 

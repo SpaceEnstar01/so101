@@ -133,6 +133,8 @@ class PiperRobot(Robot):
             if time.time() - start > 5:
                 raise RuntimeError("Piper使能超时")
             time.sleep(0.1)
+        for cam in self.cameras.values():
+            cam.connect()
         self.connected = True
         # === connect cameras ===
         for cam in self.cameras.values():

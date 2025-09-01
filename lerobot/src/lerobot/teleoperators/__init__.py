@@ -17,3 +17,4 @@
 from .config import TeleoperatorConfig
 from .teleoperator import Teleoperator
 from .utils import make_teleoperator_from_config
+from lerobot.teleoperators import so101_leader   # noqa: F401
