@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+#so101/lerobot/src/lerobot/robots/config.py
+
 import abc
 from dataclasses import dataclass
 from pathlib import Path

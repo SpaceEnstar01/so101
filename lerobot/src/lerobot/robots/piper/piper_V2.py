@@ -153,48 +153,33 @@ class PiperRobot(Robot):
         action: dict 来自 SO101Leader.get_action()
         """
         # 关节映射
-        # mapping = [
-        #     ("shoulder_pan.pos", 1),
-        #     ("shoulder_lift.pos", 2),
-        #     ("elbow_flex.pos", 3),
-        #     (None, 4),
-        #     ("wrist_flex.pos", 5),
-        #     ("wrist_roll.pos", 6),
-        # ]
         mapping = [
-            ("shoulder_pan.pos", 1),   # J1 -> motor_1
-            ("shoulder_lift.pos", 2),  # J2 -> motor_2
-            ("elbow_flex.pos", 3),     # J3 -> motor_3
-            ("wrist_roll.pos", 4),     # wrist_roll -> motor_4 -> 
-            ("wrist_flex.pos", 5),     # J5 -> motor_5
-            (None, 6),                 #
-           
-        ]        
-
-        motor_dir = [-1, 1, 1, -1, 1, -1]
-
+            ("shoulder_pan.pos", 1),
+            ("shoulder_lift.pos", 2),
+            ("elbow_flex.pos", 3),
+            (None, 4),
+            ("wrist_flex.pos", 5),
+            ("wrist_roll.pos", 6),
+        ]
+        motor_dir = [-1, 1, 1, 1, 1, -1]
         so101_limits = [
-            [-1.57, 1.57],    # shoulder_pan
-            [-1.57,  1],        # shoulder_lift [-90 -- 60 degree] 60=1.04 radian
-            [-1.67, 1.67],       # elbow_flex
-            [-1.57, 1.57],    # wrist_roll
-            [-1.57, 1.57],    # wrist_flex
-            [0, 0],           # J4（占位，不受控）
-
+            [-1.57, 1.57], 
+            [-1.57, 1], 
+            [-1.67, 1.67],
+            [0, 0], 
+            [-1.57, 1.57], 
+            [-1.57, 1.57]
         ]
-
         piper_limits = [
-            [-1.57, 1.57],    # J1
-            [0, 2.6],        # J2  0-150 degree .1.57+ 1.04 (60 degree) =2.6
-            [-2.9, 0],       # J3
-            [-1.8, 1.8],           # J4
-            [-1.2, 1.2],    # J5
-            [0, 0],    # J6（占位）
+            [-1.57, 1.57], 
+            [0, 2.6], 
+            [-2.9, 0],
+            [0, 0],
+            [-1.2, 1.2], 
+            [-2, 2]
         ]
-
         factor = 57295.7795
         cmds = [0]*6
-        
 
         for i, (so101_key, motor_id) in enumerate(mapping):
             if so101_key is None:
@@ -214,6 +199,6 @@ class PiperRobot(Robot):
 
         if "gripper.pos" in action:
             val = action["gripper.pos"] * math.pi / 180
-            val = max(0, min(1.00, val))
-            gripper_cmd = int(round((val / 1.00) * 100 * 1000))
+            val = max(0, min(1.67, val))
+            gripper_cmd = int(round((val / 1.67) * 100 * 1000))
             self.piper.GripperCtrl(abs(gripper_cmd), 1000, 0x01, 0)
