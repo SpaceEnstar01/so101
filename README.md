@@ -52,7 +52,7 @@ English version:
 
 
 
-### practical experiments 
+
 
 
 
@@ -112,9 +112,126 @@ ffplay -f v4l2 -input_format mjpeg -video_size 640x480 -framerate 30 -i /dev/vid
 ```
 
 
+---
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+### Robotic Arm Initialization Setup
+
+#### Leader Arm Calibration (so101 arm requires separate calibration)
+
+```bash
+(lerobot) paris@x:~/X/so101/lerobot/src/lerobot$ 
+python -m lerobot.calibrate \
+    --teleop.type=so101_leader \
+    --teleop.port=/dev/ttyACM0 \
+    --teleop.id=R11
+```
+
+---
+
+#### Piper Configuration Reference
+
+Using `test_feetech_motor.py` to verify the relationship between raw position values and angles.  
+For example, POS **2047** corresponds to **180 degrees**.
+
+```bash
+(lerobot) paris@x:~/X/so101/lerobot/src/lerobot/motors$ python test_feetech_motor.py --port /dev/ttyACM0 --id 1 --unit degrees read
+Present_Position raw=997, degrees=87.64835164835165
+
+(lerobot) paris@x:~/X/so101/lerobot/src/lerobot/motors$ python test_feetech_motor.py --port /dev/ttyACM0 --id 1 --unit degrees read
+Present_Position raw=3141, degrees=276.13186813186815
+```
+
+---
+
+#### Joint Calibration Table
+
+```
+NAME            |    MIN |    POS |    MAX
+shoulder_pan    |    697 |   2047 |   3377
+shoulder_lift   |    894 |   2047 |   3208
+elbow_flex      |    881 |   2047 |   3066
+wrist_flex      |    882 |   2047 |   3192
+wrist_roll      |    114 |   2047 |   3945
+gripper         |   2035 |   2047 |   3273
+```
+
+---
+
+#### Follower Arm Calibration
+
+```bash
+(lerobot) paris@x:~/X/so101/lerobot/src/lerobot$ 
+python -m lerobot.calibrate \
+    --robot.type=so101_follower \
+    --robot.port=/dev/ttyACM1 \
+    --robot.id=R00
+```
+
+
+
+
+---
+
+## practical experiments 
+
+
+#### Teleoperate Execution
+
+##### Run `teleoperate.py`
+
+```bash
+python -m lerobot.teleoperate \
+  --robot.type=piper \
+  --robot.port=can0 \
+  --teleop.type=so101_leader \
+  --teleop.port=/dev/ttyACM0 \
+  --teleop.id=R11 \
+  --display_data=true
+```
+
+---
+
+##### Run `teleoperate.py` with Camera Enabled
+
+```bash
+python -m lerobot.teleoperate \
+  --robot.type=piper \
+  --robot.port=can0 \
+  --robot.cameras="{ handeye: {type: opencv, index_or_path: 1, width: 640, height: 480, fps: 30}}" \
+  --teleop.type=so101_leader \
+  --teleop.port=/dev/ttyACM0 \
+  --teleop.id=R00 \
+  --display_data=true
+```
+
+
+
+
+
+
+#### Record Execution
+
+
+
+
+#### Deploy Execution
