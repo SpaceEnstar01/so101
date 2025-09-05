@@ -1,13 +1,6 @@
 
-
-| 模型        | 训练steps | 效果                         | 任务                         | 备注                                                                 |
-|-------------|-----------|------------------------------|------------------------------|----------------------------------------------------------------------|
-| ACT         | 50000     | 很好，几乎100%               | 抓取物品从A到B               |                                                                      |
-| SmolVLA     | 80000     | 很差，很难完成一次           | 抓取物品从A到B               | (从0到1训练)，3万次--拟合                                            |
-| ACT         | 80000     | 成功率80%-100%               | 抓取衣物从A到洗衣机          | 6万次部署，但是有时候部署效果差；下午部署就性能爆表，成功率接近100%；上午测试效果也非常好，也接近100% |
-| SmolVLA_ba e | 60000     | 很差，可以成功抓起但是很难完成一次 | 抓取衣物从A到洗衣机          | 预训练模型，2万次--拟合                                              |
-| piofast     | 30000     | 效果奇差，连抓取的动作都没有 | 抓取衣物从A到洗衣机          | 预训练模型，3万次才初现拟合，感觉训练少了；piofast模型参数巨大       |
-| ACT         | 100000    | 效果非常好 几乎90%-100%      | 抓取自然衣物从洗衣篮到洗衣机 | 9-10万次拟合，last部署，3个摄像头可以依次将衣服抓取到洗衣机内部     |
+### The purpose of this repository is to document and share my personal development journey.  
+### Through open-source collaboration and transparent technical sharing, supporting technical innovation. 
 
 
 English version:
@@ -33,6 +26,8 @@ English version:
 
 点击观看 Demo 2:(https://www.youtube.com/shorts/BxUSwnyWUZQ)
 
+ 
+
 点击缩略图跳转到 YouTube：
 
 [![Demo 1](https://www.youtube.com/shorts/5soQiujo6fU/0.jpg)](https://www.youtube.com/shorts/5soQiujo6fU) 
@@ -42,4 +37,84 @@ English version:
 
 
 [![Demo 2](https://www.youtube.com/shorts/BxUSwnyWUZQ/0.jpg)](https://www.youtube.com/shorts/BxUSwnyWUZQ)
+
+
+
+
+## so101 Leader Teleoperate so101 Followwer: Data Collection, Training, and Deployment
+
+##### here is the information I will add later
+
+
+
+
+## so101 Teleoperate piper: Data Collection, Training, and Deployment
+
+
+
+### practical experiments 
+
+
+
+ 
+### Hardware Setup and Check  
+
+#### Check USB interfaces  
+Run the following commands to check USB interfaces, mainly for **so101_leader arm** (based on my actual test):  
+
+```bash
+ls -l /dev/ttyACM*
+sudo chmod +666 /dev/ttyACM*
+```
+
+---
+
+#### Piper Interface Setup  
+
+Navigate to the Piper SDK directory:  
+
+```bash
+cd /home/paris/X/piper/piper_sdk
+```
+
+Find all CAN ports:  
+
+```bash
+bash find_all_can_port.sh
+```
+
+Activate CAN port:  
+
+```bash
+bash can_activate.sh can0 1000000
+```
+
+Set video device permissions:  
+
+```bash
+sudo chmod 666 /dev/video*
+```
+
+---
+
+#### Verify Camera Devices  
+
+List available video devices:  
+
+```bash
+ls -l /dev/video*
+```
+
+Check camera index with `ffplay`:  
+
+```bash
+ffplay -f v4l2 -input_format mjpeg -video_size 640x480 -framerate 30 -i /dev/video0
+```
+
+
+
+
+
+
+
 

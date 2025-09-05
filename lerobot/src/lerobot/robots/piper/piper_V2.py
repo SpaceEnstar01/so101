@@ -7,7 +7,7 @@ from ..utils import ensure_safe_goal_position
 from .config_piper import PiperConfig
 from lerobot.cameras.utils import make_cameras_from_configs
 from lerobot.errors import DeviceAlreadyConnectedError, DeviceNotConnectedError
-
+from functools import cached_property
 
 # 导入 Piper SDK
 from piper_sdk.interface.piper_interface_v2 import C_PiperInterface_V2
@@ -152,34 +152,41 @@ class PiperRobot(Robot):
         控制 Piper 关节和 Gripper
         action: dict 来自 SO101Leader.get_action()
         """
-        # 关节映射
+ 
         mapping = [
-            ("shoulder_pan.pos", 1),
-            ("shoulder_lift.pos", 2),
-            ("elbow_flex.pos", 3),
-            (None, 4),
-            ("wrist_flex.pos", 5),
-            ("wrist_roll.pos", 6),
-        ]
-        motor_dir = [-1, 1, 1, 1, 1, -1]
+            ("shoulder_pan.pos", 1),   # J1 -> motor_1
+            ("shoulder_lift.pos", 2),  # J2 -> motor_2
+            ("elbow_flex.pos", 3),     # J3 -> motor_3
+            ("wrist_roll.pos", 4),     # wrist_roll -> motor_4 -> 
+            ("wrist_flex.pos", 5),     # J5 -> motor_5
+            (None, 6),                 #
+           
+        ]        
+
+        motor_dir = [-1, 1, 1, -1, 1, -1]
+
         so101_limits = [
-            [-1.57, 1.57], 
-            [-1.57, 1], 
-            [-1.67, 1.67],
-            [0, 0], 
-            [-1.57, 1.57], 
-            [-1.57, 1.57]
+            [-1.57, 1.57],    # shoulder_pan
+            [-1.57,  1],        # shoulder_lift [-90 -- 60 degree] 60=1.04 radian
+            [-1.67, 1.67],       # elbow_flex
+            [-1.57, 1.57],    # wrist_roll
+            [-1.57, 1.57],    # wrist_flex
+            [0, 0],           # J4（占位，不受控）
+
         ]
+
         piper_limits = [
-            [-1.57, 1.57], 
-            [0, 2.6], 
-            [-2.9, 0],
-            [0, 0],
-            [-1.2, 1.2], 
-            [-2, 2]
+            [-1.57, 1.57],    # J1
+            [0, 2.6],        # J2  0-150 degree .1.57+ 1.04 (60 degree) =2.6
+            [-2.9, 0],       # J3
+            [-1.8, 1.8],           # J4
+            [-1.2, 1.2],    # J5
+            [0, 0],    # J6（占位）
         ]
+
         factor = 57295.7795
         cmds = [0]*6
+        
 
         for i, (so101_key, motor_id) in enumerate(mapping):
             if so101_key is None:
@@ -199,6 +206,24 @@ class PiperRobot(Robot):
 
         if "gripper.pos" in action:
             val = action["gripper.pos"] * math.pi / 180
-            val = max(0, min(1.67, val))
-            gripper_cmd = int(round((val / 1.67) * 100 * 1000))
+            val = max(0, min(1.00, val))
+            gripper_cmd = int(round((val / 1.00) * 100 * 1000))
             self.piper.GripperCtrl(abs(gripper_cmd), 1000, 0x01, 0)
+
+        # === 返回实际下发的动作值（和 so101follower 一致，角度制 °）===
+        sent_action = {
+            "shoulder_pan.pos": math.degrees(cmds[0] / factor),
+            "shoulder_lift.pos": math.degrees(cmds[1] / factor),
+            "elbow_flex.pos": math.degrees(cmds[2] / factor),
+            "wrist_roll.pos": math.degrees(cmds[3] / factor),
+            "wrist_flex.pos": math.degrees(cmds[4] / factor),
+            "gripper.pos": gripper_cmd / 1000.0 if "gripper.pos" in action else 0.0,  # 保持 mm 或百分比
+        }
+
+        print("Sent action (after mapping):", sent_action)
+        print("===========================")
+        return sent_action
+
+
+
+

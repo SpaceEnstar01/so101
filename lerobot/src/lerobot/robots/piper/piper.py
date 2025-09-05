@@ -7,7 +7,7 @@ from ..utils import ensure_safe_goal_position
 from .config_piper import PiperConfig
 from lerobot.cameras.utils import make_cameras_from_configs
 from lerobot.errors import DeviceAlreadyConnectedError, DeviceNotConnectedError
-
+from functools import cached_property
 
 # 导入 Piper SDK
 from piper_sdk.interface.piper_interface_v2 import C_PiperInterface_V2
@@ -18,20 +18,35 @@ class PiperRobot(Robot):
 
 
     
-    @property
-    def action_features(self):
-        # 返回一个 dict 列出所有可以控制的关节和 gripper
-        return {
-            "shoulder_pan.pos": 0,
-            "shoulder_lift.pos": 0,
-            "elbow_flex.pos": 0,
-            "wrist_flex.pos": 0,
-            "wrist_roll.pos": 0,
-            "gripper.pos": 0,
-        }
+    # @property
+    # def action_features(self):
+    #     # 返回一个 dict 列出所有可以控制的关节和 gripper
+    #     return {
+    #         "shoulder_pan.pos": 0,
+    #         "shoulder_lift.pos": 0,
+    #         "elbow_flex.pos": 0,
+    #         "wrist_flex.pos": 0,
+    #         "wrist_roll.pos": 0,
+    #         "gripper.pos": 0,
+    #     }
 
-    @property
-    def observation_features(self):
+    # @property
+    # def observation_features(self):
+    #     return {
+    #         "shoulder_pan.pos": float,
+    #         "shoulder_lift.pos": float,
+    #         "elbow_flex.pos": float,
+    #         "wrist_flex.pos": float,
+    #         "wrist_roll.pos": float,
+    #         "gripper.pos": float,
+    #         **{cam: (self.config.cameras[cam].height, self.config.cameras[cam].width, 3)
+    #         for cam in self.cameras},
+    #     }
+    ##  ========================zexuan  =================================
+
+    @cached_property
+    def action_features(self) -> dict[str, type]:
+        # 明确声明每个 action 的 key 和类型
         return {
             "shoulder_pan.pos": float,
             "shoulder_lift.pos": float,
@@ -39,11 +54,31 @@ class PiperRobot(Robot):
             "wrist_flex.pos": float,
             "wrist_roll.pos": float,
             "gripper.pos": float,
-            **{cam: (self.config.cameras[cam].height, self.config.cameras[cam].width, 3)
-            for cam in self.cameras},
+        }
+
+    @cached_property
+    def observation_features(self) -> dict[str, type | tuple]:
+        # 观测值 = 关节状态 + 相机
+        return {
+            "shoulder_pan.pos": float,
+            "shoulder_lift.pos": float,
+            "elbow_flex.pos": float,
+            "wrist_flex.pos": float,
+            "wrist_roll.pos": float,
+            "gripper.pos": float,
+            **{
+                cam: (self.config.cameras[cam].height,
+                      self.config.cameras[cam].width,
+                      3)
+                for cam in self.cameras
+            },
         }
 
 
+
+
+
+    ##  ========================zexuan  =================================
     def calibrate(self):
         # 如果不需要特殊标定，直接返回
         print("[Piper] calibrate called")
@@ -152,15 +187,7 @@ class PiperRobot(Robot):
         控制 Piper 关节和 Gripper
         action: dict 来自 SO101Leader.get_action()
         """
-        # 关节映射
-        # mapping = [
-        #     ("shoulder_pan.pos", 1),
-        #     ("shoulder_lift.pos", 2),
-        #     ("elbow_flex.pos", 3),
-        #     (None, 4),
-        #     ("wrist_flex.pos", 5),
-        #     ("wrist_roll.pos", 6),
-        # ]
+ 
         mapping = [
             ("shoulder_pan.pos", 1),   # J1 -> motor_1
             ("shoulder_lift.pos", 2),  # J2 -> motor_2
@@ -217,3 +244,21 @@ class PiperRobot(Robot):
             val = max(0, min(1.00, val))
             gripper_cmd = int(round((val / 1.00) * 100 * 1000))
             self.piper.GripperCtrl(abs(gripper_cmd), 1000, 0x01, 0)
+
+        # === 返回实际下发的动作值（和 so101follower 一致，角度制 °）===
+        sent_action = {
+            "shoulder_pan.pos": math.degrees(cmds[0] / factor),
+            "shoulder_lift.pos": math.degrees(cmds[1] / factor),
+            "elbow_flex.pos": math.degrees(cmds[2] / factor),
+            "wrist_roll.pos": math.degrees(cmds[3] / factor),
+            "wrist_flex.pos": math.degrees(cmds[4] / factor),
+            "gripper.pos": gripper_cmd / 1000.0 if "gripper.pos" in action else 0.0,  # 保持 mm 或百分比
+        }
+
+        # print("Sent action (after mapping):", sent_action)
+        # print("===========================")
+        return sent_action
+
+
+
+
