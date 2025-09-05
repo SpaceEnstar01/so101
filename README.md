@@ -42,6 +42,7 @@ English version:
 
 
 ## so101 Leader Teleoperate so101 Followwer: Data Collection, Training, and Deployment
+![Arm Kit](playground/image/Arm_kit.png)
 
 ##### here is the information I will add later
 
@@ -50,7 +51,7 @@ English version:
 
 ## so101 Teleoperate piper: Data Collection, Training, and Deployment
 
-
+![Piper](playground/image/piper.png)
 
 
 
@@ -121,7 +122,7 @@ ffplay -f v4l2 -input_format mjpeg -video_size 640x480 -framerate 30 -i /dev/vid
 ---
 
 
-
+---
 
 
 
