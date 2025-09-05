@@ -59,6 +59,12 @@ English version:
  
 ### Hardware Setup and Check  
 
+#### Device
+RTX4090D-24G   
+so101 Arm and piper   
+Ubuntu20.04  
+
+
 #### Check USB interfaces  
 Run the following commands to check USB interfaces, mainly for **so101_leader arm** (based on my actual test):  
 
