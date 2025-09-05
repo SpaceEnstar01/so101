@@ -1,9 +1,13 @@
 
-### The purpose of this repository is to document and share my personal development journey.  
-### Through open-source collaboration and transparent technical sharing, supporting technical innovation. 
+##### The purpose of this repository is to document and share my personal development journey.  
+##### Through open-source collaboration and transparent technical sharing, supporting technical innovation. 
 
 
-English version:
+
+## so101 Leader Teleoperate so101 Followwer: Data Collection, Training, and Deployment
+![Arm Kit](playground/image/Arm_kit.png)
+
+
 
 | Model       | Training Steps | Performance                     | Data | Task                           | Notes                                                                 |
 |-------------|----------------|---------------------------------|------|--------------------------------|----------------------------------------------------------------------|
@@ -41,8 +45,7 @@ English version:
 
 
 
-## so101 Leader Teleoperate so101 Followwer: Data Collection, Training, and Deployment
-![Arm Kit](playground/image/Arm_kit.png)
+
 
 ##### here is the information I will add later
 
