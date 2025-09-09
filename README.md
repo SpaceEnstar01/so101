@@ -256,10 +256,7 @@ python -m lerobot.teleoperate \
 
 
 
-
-## practical experiment 
-
-
+## > ⚙️ **Practical Experiment**
 
 
 
@@ -347,10 +344,9 @@ python scripts/deploy.py \
 
 
 
-### experiment 2:
-
 
 ### Experiment 2
+
 
 - **Date**: 2025-09-07  
 - **Task Information**: piper pick cloth from ground to basket  
@@ -434,6 +430,16 @@ python scripts/deploy.py \
   --dataset.repo_id=local/eval_piperpickA2B15 \
   --dataset.push_to_hub=false 
 ```
+
+
+---
+
+
+
+
+
+
+
 
 
 
