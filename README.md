@@ -4,8 +4,9 @@
 
 
 
-## so101 Leader Teleoperate so101 Followwer: Data Collection, Training, and Deployment
-![Arm Kit](playground/image/Arm_kit.png)
+## so101 Leader Teleoperate so101 Followwer: Data Collection, Training, and Deployment    
+
+---   
 
 
 
@@ -18,6 +19,12 @@
 | pi0fast     | 30000          | Very poor, cannot even pick      | 50x2 | Pick clothes from A to washing machine | Pretrained, 30k steps for initial fitting; model parameters huge     |
 | ACT         | 100000         | Excellent, almost 90%-100%      | 62x3 | Pick natural clothes from laundry basket to washing machine | 90-100k steps fitting, last deployment, 3 cameras<br>Can sequentially pick clothes into washing machine; arm movement is natural |
 | pi0fast     | 80000          | Very poor, HF pi0 model seems problematic | 62x3 | Pick natural clothes from laundry basket to washing machine | Deployed after ACT_100k with 90% success; many factors excluded; pi0fast last deployment = arm almost frozen;<br>40000 steps deployment also very poor |
+
+
+      
+
+
+![Arm Kit](playground/image/Arm_kit.png)
 
 
 
@@ -208,6 +215,14 @@ python -m lerobot.calibrate \
 #### Teleoperate Execution
 
 ##### Run `teleoperate.py`
+
+
+more personal detailed you can make a reference:   
+The script can be run from the following directory:
+
+```bash
+cd /home/paris/X/so101/lerobot/src
+```
 
 ```bash
 python -m lerobot.teleoperate \

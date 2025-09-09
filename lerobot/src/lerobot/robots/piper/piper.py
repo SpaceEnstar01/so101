@@ -198,8 +198,8 @@ class PiperRobot(Robot):
            
         ]        
 
-        motor_dir = [-1, 1, 1, -1, 1, -1]
-
+        #motor_dir = [1, 1, 1, 1, -1, -1]
+        motor_dir = [-1, 1, 1, -1, 1, -1] # right corrected direction 
         so101_limits = [
             [-1.57, 1.57],    # shoulder_pan
             [-1.57,  1],        # shoulder_lift [-90 -- 60 degree] 60=1.04 radian
@@ -246,18 +246,22 @@ class PiperRobot(Robot):
             self.piper.GripperCtrl(abs(gripper_cmd), 1000, 0x01, 0)
 
         # === 返回实际下发的动作值（和 so101follower 一致，角度制 °）===
-        sent_action = {
-            "shoulder_pan.pos": math.degrees(cmds[0] / factor),
-            "shoulder_lift.pos": math.degrees(cmds[1] / factor),
-            "elbow_flex.pos": math.degrees(cmds[2] / factor),
-            "wrist_roll.pos": math.degrees(cmds[3] / factor),
-            "wrist_flex.pos": math.degrees(cmds[4] / factor),
-            "gripper.pos": gripper_cmd / 1000.0 if "gripper.pos" in action else 0.0,  # 保持 mm 或百分比
-        }
+        # sent_action = {
+        #     "shoulder_pan.pos": math.degrees(cmds[0] / factor),
+        #     "shoulder_lift.pos": math.degrees(cmds[1] / factor),
+        #     "elbow_flex.pos": math.degrees(cmds[2] / factor),
+        #     "wrist_roll.pos": math.degrees(cmds[3] / factor),
+        #     "wrist_flex.pos": math.degrees(cmds[4] / factor),
+        #     "gripper.pos": gripper_cmd / 1000.0 if "gripper.pos" in action else 0.0,  # 保持 mm 或百分比
+        # }
 
         # print("Sent action (after mapping):", sent_action)
         # print("===========================")
+        # return sent_action
+                # === 返回原始 SO101 风格 action（与 so101_follower 一致）===
+        sent_action = {key: action[key] for key in action}
         return sent_action
+
 
 
 

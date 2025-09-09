@@ -85,6 +85,7 @@ from lerobot.robots import (  # noqa: F401
     make_robot_from_config,
     so100_follower,
     so101_follower,
+    PiperRobot,  # 直接导入类
 )
 from lerobot.teleoperators import (  # noqa: F401
     Teleoperator,
@@ -230,6 +231,8 @@ def record_loop(
             break  # 无策略也无遥操作，直接退出
 
         # 3. 下发动作
+
+        #action = {k: -v for k, v in action.items()} # add by zexuan
         robot.send_action(action)
 
         # 4. 可选可视化
