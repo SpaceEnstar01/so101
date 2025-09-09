@@ -1,0 +1,50 @@
+
+# 忽略 Python 缓存
+
+__pycache__/
+
+*.pyc
+
+*.pyo
+
+*.pyd
+
+
+
+# 忽略虚拟环境
+
+.venv/
+
+env/
+
+venv/
+
+
+
+# 忽略训练输出
+
+lerobot/src/lerobot/outputs/
+
+
+# 忽略日志和临时文件
+
+*.log
+
+*.tmp
+
+*.swp
+
+.DS_Store
+
+
+
+# 忽略模型文件（无论放哪）
+
+*.pth
+
+*.pt
+
+*.bin
+
+*.safetensors
+
