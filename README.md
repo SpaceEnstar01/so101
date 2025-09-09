@@ -267,7 +267,11 @@ python -m lerobot.teleoperate \
 
 ## > ⚙️ **Practical Experiment**
 
-
+| Models | Train steps | Performance | Data | Task                              | Notes                                                                                                 |
+|--------|-------------|-------------|------|-----------------------------------|-------------------------------------------------------------------------------------------------------|
+| ACT    | 120000      | Failed      | 50x3 | pick cloth from basket to laundry | Piper shows orientation errors                                                                        |
+| ACT    | 100000      | ~80%        | 40x3 | pick cloth from ground to basket  | limited to picking clothes only from a certain area                                                   |
+| ACT    | 120000      | 90 - 95%    | 71X3 | pick cloth from basket to laundry | piper can successfully grab clothes into the washing machine, and also gradually pick the clothes hanging at the washing machine door into the washing machine. |
 
 ### Experiment 1
 
@@ -561,4 +565,4 @@ python scripts/deploy.py \
 
 
 ---
-add 1\2 more for git
+add 1\2\3 more for git
