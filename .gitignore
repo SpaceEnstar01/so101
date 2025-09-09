@@ -20,6 +20,11 @@ env/
 venv/
 
 
+# 忽略 robots/piper 模块
+
+lerobot/src/lerobot/robots/piper/
+
+
 
 # 忽略训练输出
 
