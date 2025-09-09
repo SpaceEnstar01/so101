@@ -106,15 +106,17 @@ Activate CAN port:
 bash can_activate.sh can0 1000000
 ```
 
-Set video device permissions:  
+---
+
+##### Set video device permissions:  
 
 ```bash
 sudo chmod 666 /dev/video*
 ```
 
----
 
-#### Verify Camera Devices  
+
+Verify Camera Devices  
 
 List available video devices:  
 
@@ -132,22 +134,6 @@ ffplay -f v4l2 -input_format mjpeg -video_size 640x480 -framerate 30 -i /dev/vid
 ---
 
 
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
 
 
 
@@ -259,4 +245,198 @@ python -m lerobot.teleoperate \
 
 
 
+
+
+
+
 #### Deploy Execution
+
+
+
+
+
+
+
+## practical experiment 
+
+
+
+
+
+### Experiment 1
+
+- **Date**: 2025-09-04  
+- **Task information**: piper pick cloth from basket to laundry/washmachining 
+- **Episodes Collected**: 30 + 20  
+- **Training**: 120,000 steps completed  
+- **Deployment Result**: Piper shows orientation errors (garbled directions due to LeRobot framework integration), but still attempts to grasp the cloth.  
+- **pick rate**: Failed 
+
+
+
+##### Data Collection
+
+```bash
+python -m lerobot.record \
+  --robot.disable_torque_on_disconnect=true \
+  --robot.type=piper \
+  --robot.port=can0 \
+  --robot.cameras="{'handeye': {'type':'opencv', 'index_or_path':0, 'width':640, 'height':480, 'fps':30}, 'fixed': {'type':'opencv', 'index_or_path':2, 'width':640, 'height':480, 'fps':30}, 'extra': {'type':'opencv', 'index_or_path':4, 'width':640, 'height':480, 'fps':30}}" \
+  --teleop.type=so101_leader \
+  --teleop.port=/dev/ttyACM0 \
+  --teleop.id=R11 \
+  --display_data=true \
+  --dataset.repo_id=local/so101_piper_pick \
+  --dataset.num_episodes=30 \
+  --dataset.episode_time_s=50 \
+  --dataset.reset_time_s=08 \
+  --dataset.push_to_hub=false \
+  --dataset.root=/home/paris/X/data/piper_data/piper_09_04 \
+  --resume=true \
+  --dataset.single_task="piper pick cloth"
+```
+
+
+
+##### Training (120,000 steps)
+
+```bash
+nohup python scripts/train.py \
+  --dataset.repo_id=/home/paris/X/data/piper_data/piper_09_04 \
+  --policy.type=act \
+  --output_dir=outputs/train/piper/piper_120000 \
+  --job_name=pick2wash \
+  --policy.device=cuda \
+  --batch_size=32 \
+  --steps=120000 \
+  --save_freq=5000 \
+  --eval_freq=5000 \
+  --log_freq=1000 \
+  --policy.push_to_hub=false \
+  > train.log 2>&1 &
+```
+
+
+
+##### Deployment
+
+```bash
+python scripts/deploy.py \
+  --robot.type=piper \
+  --robot.disable_torque_on_disconnect=true \
+  --robot.port=can0 \
+  --robot.cameras="{'handeye': {'type':'opencv', 'index_or_path':0, 'width':640, 'height':480, 'fps':30}, 'fixed': {'type':'opencv', 'index_or_path':2, 'width':640, 'height':480, 'fps':30}, 'extra': {'type':'opencv', 'index_or_path':4, 'width':640, 'height':480, 'fps':30}}" \
+  --display_data=true \
+  --dataset.single_task="piper pick cloth" \
+  --policy.path=/home/paris/X/so101/lerobot/src/lerobot/outputs/train/piper/piper_120000/checkpoints/120000/pretrained_model \
+  --policy.device=cuda \
+  --dataset.episode_time_s=9999 \
+  --dataset.repo_id=local/eval_piperpick21 \
+  --dataset.push_to_hub=false
+```
+
+
+
+##### Model Location
+
+```
+/home/paris/X/so101/lerobot/src/lerobot/outputs/train/piper/piper_120000/checkpoints/last/pretrained_model
+```
+
+
+
+
+
+### experiment 2:
+
+
+### Experiment 2
+
+- **Date**: 2025-09-07  
+- **Task Information**: piper pick cloth from ground to basket  
+- **Episodes Collected**: 30 + 10  
+- **Training**: 100,000 steps completed  
+- **Deployment Result**: piper can successfully pick clothes into the laundry basket, but often limited to picking clothes only from a certain area  
+- **Pick rate**: ~80%  
+
+
+
+#### Data Collection
+
+Successfully collected 30 + 10 episodes, dataset: put the clothes on the ground into the laundry basket  
+
+```bash
+python -m lerobot.record \
+  --robot.disable_torque_on_disconnect=true \
+  --robot.type=piper \
+  --robot.port=can0 \
+  --robot.cameras="{'handeye': {'type':'opencv', 'index_or_path':0, 'width':640, 'height':480, 'fps':30}, 'fixed': {'type':'opencv', 'index_or_path':2, 'width':640, 'height':480, 'fps':30}, 'extra': {'type':'opencv', 'index_or_path':4, 'width':640, 'height':480, 'fps':30}}" \
+  --teleop.type=so101_leader \
+  --teleop.port=/dev/ttyACM0 \
+  --teleop.id=R11 \
+  --display_data=true \
+  --dataset.repo_id=local/so101_piper_pickA2B \
+  --dataset.num_episodes=30 \
+  --dataset.episode_time_s=40 \
+  --dataset.reset_time_s=03 \
+  --dataset.push_to_hub=false \
+  --dataset.root=/home/paris/X/data/piper_data/piper_09_07 \
+  --resume=true \
+  --dataset.single_task="piper pick cloth A2B"
+```
+
+Add 10 more episodes key instruction:  
+
+```bash
+--resume=true \
+```
+
+
+#### Training (100,000 steps)
+
+Training completed, model saved in:  
+
+```bash
+nohup python scripts/train.py \
+  --dataset.repo_id=/home/paris/X/data/piper_data/piper_09_07 \
+  --policy.type=act \
+  --output_dir=outputs/train/piper/piper_100000 \
+  --job_name=pick_cloth_A2B \
+  --policy.device=cuda \
+  --batch_size=32 \
+  --steps=100000 \
+  --save_freq=5000 \
+  --eval_freq=5000 \
+  --log_freq=1000 \
+  --policy.push_to_hub=false \
+  > train.log 2>&1 &
+```
+
+
+#### Deployment
+
+Successful deployment: after 100,000 training steps, the final result is that **piper can successfully pick clothes, but often only limited to a certain area of clothes**.  
+
+- Deployment of `/last/080000`, `/090000`, `/100000` models has similar performance.  
+- Next steps: need to increase data and increase training steps (because at 100,000 steps, the loss did not converge).  
+
+```bash
+python scripts/deploy.py \
+  --robot.type=piper \
+  --robot.disable_torque_on_disconnect=true \
+  --robot.port=can0 \
+  --robot.cameras="{'handeye': {'type':'opencv', 'index_or_path':0, 'width':640, 'height':480, 'fps':30}, 'fixed': {'type':'opencv', 'index_or_path':2, 'width':640, 'height':480, 'fps':30}, 'extra': {'type':'opencv', 'index_or_path':4, 'width':640, 'height':480, 'fps':30}}" \
+  --display_data=true \
+  --dataset.single_task="piper_pickA2B" \
+  --policy.path=/home/paris/X/so101/lerobot/src/lerobot/outputs/train/piper/piper_100000/checkpoints/065000/pretrained_model \
+  --policy.device=cuda \
+  --dataset.episode_time_s=9999 \
+  --dataset.repo_id=local/eval_piperpickA2B15 \
+  --dataset.push_to_hub=false 
+```
+
+
+
+
+
+
