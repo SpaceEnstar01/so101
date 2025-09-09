@@ -441,8 +441,115 @@ python scripts/deploy.py \
 
 
 
+### Experiment 3
+
+
+
+
+**Date:** 2025-09-07  
+**Task information:** piper pick cloth from basket to laundry  
+**Episodes Collected:** 70  
+**Training:** 120,000 steps completed  
+**Deployment Result:** piper can successfully grab clothes into the washing machine, and also gradually pick the clothes hanging at the washing machine door into the washing machine.  
+**Pick rate:** 90-95%  
+
+##### Data Collection
+
+Successfully collected **70 episodes**: piper dataset  
+
+```bash
+
+ python -m lerobot.record \
+    --robot.disable_torque_on_disconnect=true \
+    --robot.type=piper \
+    --robot.port=can0 \
+     --robot.cameras="{'handeye': {'type':'opencv', 'index_or_path':0, 'width':640, 'height':480, 'fps':30}, 'fixed': {'type':'opencv', 'index_or_path':2, 'width':640, 'height':480, 'fps':30}, 'extra': {'type':'opencv', 'index_or_path':4, 'width':640, 'height':480, 'fps':30}}" \
+    --teleop.type=so101_leader \
+    --teleop.port=/dev/ttyACM0 \
+    --teleop.id=R11 \
+    --display_data=true \
+    --dataset.repo_id=local/so101_piper_pickC2washer \
+    --dataset.num_episodes=30 \
+    --dataset.episode_time_s=40 \
+    --dataset.reset_time_s=5 \
+    --dataset.push_to_hub=false \
+    --resume=true \
+    --dataset.root=/home/paris/X/data/piper_data/piper_09_08 \
+    --dataset.single_task="piper pick cloth2washer"
+
+
+```
+
+```bash
+--resume=true \
+```
+
+##### Training
+
+Training **120,000 steps**, results saved at:  
+`outputs/train/piper/piper_pickC2washer_120000`
+
+
+```bash
+  nohup python scripts/train.py \
+  --dataset.repo_id=/home/paris/X/data/piper_data/piper_09_08 \
+  --policy.type=act \
+  --output_dir=outputs/train/piper/piper_pickC2washer_120000 \
+  --job_name=piper_pickC2washer \
+  --policy.device=cuda \
+  --batch_size=32 \
+  --steps=120000 \
+  --save_freq=5000 \
+  --eval_freq=5000 \
+  --log_freq=1000 \
+  --policy.push_to_hub=false \
+  > train.log 2>&1 &
+
+
+```
+
+
+
+
+Check training progress:  
+
+```bash
+tail -f train.log 
+
+```
+
+
+
+##### Deployment
+
+Deployment successful: after **120,000 steps training**,  
+the result is that **piper can successfully pick clothes into the washing machine with high accuracy**, and also gradually pick the clothes hanging on the washing machine door into the washing machine.  
+Currently, it cannot distinguish the basket boundary clearly.  
+Models in `/last/` work.  
+**Next step:** increase dataset size and training steps.
+
+
+
+```bash
+python scripts/deploy.py \
+  --robot.type=piper \
+  --robot.disable_torque_on_disconnect=true \
+  --robot.port=can0 \
+  --robot.cameras="{'handeye': {'type':'opencv', 'index_or_path':0, 'width':640, 'height':480, 'fps':30}, 'fixed': {'type':'opencv', 'index_or_path':2, 'width':640, 'height':480, 'fps':30}, 'extra': {'type':'opencv', 'index_or_path':4, 'width':640, 'height':480, 'fps':30}}" \
+  --display_data=true \
+  --dataset.single_task="piper_pickA2B" \
+  --policy.path=/home/paris/X/so101/lerobot/src/lerobot/outputs/train/piper/piper_pickC2washer_120000/checkpoints/last/pretrained_model \
+  --policy.device=cuda \
+  --dataset.episode_time_s=9999 \
+  --dataset.repo_id=local/eval_pickC2washer00 \
+  --dataset.push_to_hub=false 
+
+```
 
 
 
 
 
+
+---
+add one more for git
