@@ -4,7 +4,8 @@
 
 
 
-## so101 Leader Teleoperate so101 Followwer: Data Collection, Training, and Deployment    
+## so101 Leader Teleoperate so101 Followwer: 
+### Data Collection, Training, and Deployment    
 
 ---   
 
@@ -33,9 +34,16 @@
 
 ## Demo 视频
 
-点击观看 Demo 1:(https://www.youtube.com/shorts/5soQiujo6fU) 
+##### Demo 1:
+Robotic autonomous picking from A to washing machine (ACT- 80000 steps) 
 
-点击观看 Demo 2:(https://www.youtube.com/shorts/BxUSwnyWUZQ)
+(https://www.youtube.com/shorts/5soQiujo6fU) 
+
+##### Demo 2:
+
+Robotic autonomous pick natural clothes from laundry basket to washing machine(ACT- 100000 steps) 
+
+(https://www.youtube.com/shorts/BxUSwnyWUZQ)
 
  
 
@@ -59,7 +67,8 @@
 
 
 
-## so101 Teleoperate piper: Data Collection, Training, and Deployment
+## so101 Teleoperate piper: 
+### Data Collection, Training, and Deployment
 
 ![Piper](playground/image/piper.png)
 
@@ -552,4 +561,4 @@ python scripts/deploy.py \
 
 
 ---
-add one more for git
+add 1\2 more for git
