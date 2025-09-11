@@ -1,5 +1,3 @@
-
-##### The purpose of this repository is to document and share my personal development journey.  
 ##### Through open-source collaboration and transparent technical sharing, supporting technical innovation. 
 
 
