@@ -6,7 +6,7 @@ sys.path.insert(0, '/home/paris/X/so101/lerobot/src')
 from src.lerobot.teleoperators.so101_leader.so101_leader import SO101Leader
 from src.lerobot.teleoperators.so101_leader.config_so101_leader import SO101LeaderConfig
 
-cfg = SO101LeaderConfig(port="/dev/ttyACM0", id="R00")
+cfg = SO101LeaderConfig(port="/dev/ttyACM1", id="R11")
 
 leader = SO101Leader(cfg)
 leader.connect(calibrate=False)  # ← 跳过校准
