@@ -133,6 +133,7 @@ class RealSenseCamera(Camera):
         self.stop_event: Event | None = None
         self.frame_lock: Lock = Lock()
         self.latest_frame: np.ndarray | None = None
+        self.latest_depth_frame: np.ndarray | None = None  # ✅ 新增 depth 缓存
         self.new_frame_event: Event = Event()
 
         self.rotation: int | None = get_cv2_rotation(config.rotation)
@@ -443,24 +444,37 @@ class RealSenseCamera(Camera):
 
         return processed_image
 
-                    
     def _read_loop(self):
+        """
+        Internal loop run by the background thread for asynchronous reading.
+
+        On each iteration:
+        1. Reads a color frame with 500ms timeout
+        2. Stores result in latest_frame (thread-safe)
+        3. Sets new_frame_event to notify listeners
+
+        Stops on DeviceNotConnectedError, logs other errors and continues.
+        """
         while not self.stop_event.is_set():
             try:
+
+                color_image = self.read(timeout_ms=500)
+                depth_image = None
                 if self.use_depth:
-                    frame = self.read_depth(timeout_ms=200)  # np.ndarray
-                else:
-                    frame = self.read(timeout_ms=200)  # np.ndarray
+                    depth_image = self.read_depth(timeout_ms=500)
 
                 with self.frame_lock:
-                    self.latest_frame = frame
+                    self.latest_frame = color_image
+                    self.latest_depth_frame = depth_image  #  新增 depth 存储
                 self.new_frame_event.set()
+
 
             except DeviceNotConnectedError:
                 break
             except Exception as e:
                 logger.warning(f"Error reading frame in background thread for {self}: {e}")
-                    
+
+
 
 
 
@@ -509,7 +523,6 @@ class RealSenseCamera(Camera):
             TimeoutError: If no frame data becomes available within the specified timeout.
             RuntimeError: If the background thread died unexpectedly or another error occurs.
         """
-
         if not self.is_connected:
             raise DeviceNotConnectedError(f"{self} is not connected.")
 
@@ -522,15 +535,44 @@ class RealSenseCamera(Camera):
                 f"Timed out waiting for frame from camera {self} after {timeout_ms} ms. "
                 f"Read thread alive: {thread_alive}."
             )
+    
 
         with self.frame_lock:
-            frame_dict = self.latest_frame.copy() if self.latest_frame is not None else None
+            color_frame = self.latest_frame
+            depth_frame = self.latest_depth_frame if self.use_depth else None
             self.new_frame_event.clear()
 
-        if frame_dict is None:
+        if color_frame is None:
             raise RuntimeError(f"Internal error: Event set but no frame available for {self}.")
 
-        return frame_dict
+        return color_frame, depth_frame  # 
+
+    def read_with_depth(self, timeout_ms: int = 200) -> dict:
+        """
+        Reads both color and depth frames from the same pipeline.
+        Returns:
+            dict: {'color': np.ndarray, 'depth': np.ndarray}
+        """
+        if not self.is_connected:
+            raise DeviceNotConnectedError(f"{self} is not connected.")
+
+        start_time = time.perf_counter()
+        ret, frames = self.rs_pipeline.try_wait_for_frames(timeout_ms=timeout_ms)
+        if not ret or frames is None:
+            raise RuntimeError(f"{self} read_with_depth failed.")
+
+        color_frame = frames.get_color_frame()
+        depth_frame = frames.get_depth_frame()
+
+        color_image = np.asanyarray(color_frame.get_data())
+        depth_image = np.asanyarray(depth_frame.get_data())
+
+        color_image = self._postprocess_image(color_image)
+        depth_image = self._postprocess_image(depth_image, depth_frame=True)
+
+        return {'color': color_image, 'depth': depth_image}
+
+
 
     def disconnect(self):
         """

@@ -206,6 +206,58 @@ def record_loop(
     device = get_safe_torch_device(policy.config.device) if policy else None
     use_amp = policy.config.use_amp if policy else False
 
+    # ============ 新增代码：初始化低通滤波器 ========== Add by zexuan ==========
+    import numpy as np
+    class LowPassFilter:
+        def __init__(self, alpha=0.9, n_joints=8):
+            self.alpha = alpha  # 滤波系数：越小越平滑
+            self.prev_action = np.zeros(n_joints)
+        
+        def __call__(self, current_action):
+            smoothed = self.alpha * current_action + (1 - self.alpha) * self.prev_action
+            self.prev_action = smoothed.copy()
+            return smoothed
+    
+    # 根据机器人的动作特征数量初始化滤波器
+    n_joints = len(robot.action_features)
+    low_pass_filter = LowPassFilter(alpha=0.95, n_joints=n_joints)
+
+    #alpha=0.3 是一个中等强度的滤波，如果还抖动可以尝试 0.2 或 0.1 ;如果滤波太强导致动作滞后，可以尝试 alpha=0.5
+    # ============ 新增代码结束 ============ Add by zexuan ========
+
+
+    # ============ 新增代码开始：动作阈值过滤器 ========== Add by zexuan ==========
+    class ActionThresholdFilter:
+        def __init__(self, threshold=0.2, n_joints=7):  # 阈值设为0.02弧度 ≈ 1.15度,0.08 = 5 degree 
+            self.threshold = threshold
+            self.n_joints = n_joints
+            self.prev_action = np.zeros(n_joints)
+            self.stable_count = 0
+        
+        def __call__(self, current_action):
+            # 计算每个关节的变化量
+            action_diff = np.abs(current_action - self.prev_action)
+            max_diff = np.max(action_diff)
+            
+            # 如果所有关节变化都小于阈值，保持上一个动作
+            if max_diff < self.threshold:
+                self.stable_count += 1
+                # 即使变化小，但连续多次保持稳定时也更新，防止完全卡死
+                if self.stable_count < 5:  # 连续5次小变化后才更新
+                    return self.prev_action.copy()
+            
+            self.stable_count = 0
+            self.prev_action = current_action.copy()
+            return current_action
+    
+    # 初始化阈值滤波器
+    threshold_filter = ActionThresholdFilter(threshold=0.2, n_joints=n_joints)  # 0.015弧度 ≈ 0.86度
+    # ============ 新增代码结束：动作阈值过滤器 ========== Add by zexuan ==========
+
+
+
+
+
     start_episode_t = time.perf_counter()
     while not events["stop_recording"]:
         start_loop_t = time.perf_counter()
@@ -224,7 +276,24 @@ def record_loop(
                 task=single_task,
                 robot_type=robot.robot_type,
             )
-            action = {k: action_tensor[i].item() for i, k in enumerate(robot.action_features)}
+
+
+            #action = {k: action_tensor[i].item() for i, k in enumerate(robot.action_features)}
+            # ============ 修改代码：添加平滑滤波 ========== Add by zexuan =======
+            # 将动作张量转换为numpy数组
+            action_np = action_tensor.cpu().numpy()
+            
+            # 应用低通滤波
+            smoothed_action_np = low_pass_filter(action_np)
+
+            # ============ 新增代码开始：添加阈值滤波 ========== Add by zexuan =======
+            # 再应用阈值滤波（抑制微小变化）
+            final_action_np = threshold_filter(smoothed_action_np)           
+            # 将最终动作转换回字典格式
+            action = {k: final_action_np[i].item() for i, k in enumerate(robot.action_features)}
+            # ============ 新增代码结束：添加阈值滤波 ========== Add by zexuan =======
+
+
         elif teleop is not None:
             action = teleop.get_action()
         else:
@@ -243,7 +312,9 @@ def record_loop(
         if control_time_s and (time.perf_counter() - start_episode_t >= control_time_s):
             break
         # 最多睡 30 ms，保证 UI 响应
-        time.sleep(min(0.030, max(0, 1 / fps - (time.perf_counter() - start_loop_t))))
+        #time.sleep(min(0.030, max(0, 1 / fps - (time.perf_counter() - start_loop_t))))
+        # 最多睡 100 ms，保证 UI 响应  Add by zexuan
+        time.sleep(min(0.070, max(0, 1 / fps - (time.perf_counter() - start_loop_t))))
 
 @parser.wrap()
 def record(cfg: RecordConfig) -> LeRobotDataset:

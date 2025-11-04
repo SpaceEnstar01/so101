@@ -1,0 +1,69 @@
+Traceback (most recent call last):
+  File "/home/paris/X/so101/lerobot/src/lerobot/scripts/train.py", line 291, in <module>
+    train()
+  File "/home/paris/X/so101/lerobot/src/lerobot/configs/parser.py", line 224, in wrapper_inner
+    cfg = draccus.parse(config_class=argtype, config_path=config_path, args=cli_args)
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/draccus/argparsing.py", line 211, in parse
+    return parser.parse_args(args)
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/draccus/argparsing.py", line 102, in parse_args
+    args, _ = self.parse_known_args(args, namespace, is_parse_args=True)
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/draccus/argparsing.py", line 136, in parse_known_args
+    parsed_t = self._postprocessing(parsed_args)
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/draccus/argparsing.py", line 180, in _postprocessing
+    cfg = decoding.decode(self.config_class, deflat_d)
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/draccus/parsers/registry_utils.py", line 78, in wrapper
+    return base_func(*args, **kw)
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/draccus/parsers/decoding.py", line 48, in decode
+    return get_decoding_fn(cls)(raw_value, ())  # type: ignore
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/draccus/parsers/decoding.py", line 157, in decode_dataclass
+    raise DecodingError(path, f"Missing required field(s) {formatted_keys} for {stringify_type(cls)}")
+draccus.utils.DecodingError: Missing required field(s) `dataset` for TrainPipelineConfig
+Traceback (most recent call last):
+  File "/home/paris/X/so101/lerobot/src/lerobot/scripts/train.py", line 28, in <module>
+    from lerobot.configs.train import TrainPipelineConfig
+  File "/home/paris/X/so101/lerobot/src/lerobot/configs/train.py", line 26, in <module>
+    from lerobot.configs.default import DatasetConfig, EvalConfig, WandBConfig
+  File "/home/paris/X/so101/lerobot/src/lerobot/configs/default.py", line 19, in <module>
+    from lerobot import (
+  File "/home/paris/X/so101/lerobot/src/lerobot/policies/__init__.py", line 15, in <module>
+    from .act.configuration_act import ACTConfig as ACTConfig
+  File "/home/paris/X/so101/lerobot/src/lerobot/policies/act/configuration_act.py", line 18, in <module>
+    from lerobot.configs.policies import PreTrainedConfig
+  File "/home/paris/X/so101/lerobot/src/lerobot/configs/policies.py", line 30, in <module>
+    from lerobot.optim.optimizers import OptimizerConfig
+  File "/home/paris/X/so101/lerobot/src/lerobot/optim/__init__.py", line 15, in <module>
+    from .optimizers import OptimizerConfig as OptimizerConfig
+  File "/home/paris/X/so101/lerobot/src/lerobot/optim/optimizers.py", line 29, in <module>
+    from lerobot.datasets.utils import flatten_dict, unflatten_dict, write_json
+  File "/home/paris/X/so101/lerobot/src/lerobot/datasets/utils.py", line 36, in <module>
+    from torchvision import transforms
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torchvision/__init__.py", line 10, in <module>
+    from torchvision import _meta_registrations, datasets, io, models, ops, transforms, utils  # usort:skip
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torchvision/models/__init__.py", line 2, in <module>
+    from .convnext import *
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torchvision/models/convnext.py", line 9, in <module>
+    from ..ops.misc import Conv2dNormActivation, Permute
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torchvision/ops/__init__.py", line 23, in <module>
+    from .poolers import MultiScaleRoIAlign
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torchvision/ops/poolers.py", line 10, in <module>
+    from .roi_align import roi_align
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torchvision/ops/roi_align.py", line 7, in <module>
+    from torch._dynamo.utils import is_compile_supported
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torch/_dynamo/__init__.py", line 13, in <module>
+    from . import config, convert_frame, eval_frame, resume_execution
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torch/_dynamo/convert_frame.py", line 53, in <module>
+    from torch._dynamo.symbolic_convert import TensorifyState
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torch/_dynamo/symbolic_convert.py", line 52, in <module>
+    from torch._dynamo.exc import TensorifyScalarRestartAnalysis
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torch/_dynamo/exc.py", line 41, in <module>
+    from .utils import counters
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torch/_dynamo/utils.py", line 116, in <module>
+    import torch._numpy as tnp
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torch/_numpy/__init__.py", line 5, in <module>
+    from ._funcs import *  # noqa: F403
+  File "/home/paris/miniconda3/envs/lerobot/lib/python3.10/site-packages/torch/_numpy/_funcs.py", line 6, in <module>
+    from . import _funcs_impl, _reductions_impl
+  File "<frozen importlib._bootstrap>", line 1024, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 174, in __exit__
+  File "<frozen importlib._bootstrap>", line 134, in release
+KeyboardInterrupt

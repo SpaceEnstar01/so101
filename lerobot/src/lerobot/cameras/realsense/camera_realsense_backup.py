@@ -443,26 +443,29 @@ class RealSenseCamera(Camera):
 
         return processed_image
 
-                    
     def _read_loop(self):
+        """
+        Internal loop run by the background thread for asynchronous reading.
+
+        On each iteration:
+        1. Reads a color frame with 500ms timeout
+        2. Stores result in latest_frame (thread-safe)
+        3. Sets new_frame_event to notify listeners
+
+        Stops on DeviceNotConnectedError, logs other errors and continues.
+        """
         while not self.stop_event.is_set():
             try:
-                if self.use_depth:
-                    frame = self.read_depth(timeout_ms=200)  # np.ndarray
-                else:
-                    frame = self.read(timeout_ms=200)  # np.ndarray
+                color_image = self.read(timeout_ms=500)
 
                 with self.frame_lock:
-                    self.latest_frame = frame
+                    self.latest_frame = color_image
                 self.new_frame_event.set()
 
             except DeviceNotConnectedError:
                 break
             except Exception as e:
                 logger.warning(f"Error reading frame in background thread for {self}: {e}")
-                    
-
-
 
     def _start_read_thread(self) -> None:
         """Starts or restarts the background read thread if it's not running."""
@@ -509,7 +512,6 @@ class RealSenseCamera(Camera):
             TimeoutError: If no frame data becomes available within the specified timeout.
             RuntimeError: If the background thread died unexpectedly or another error occurs.
         """
-
         if not self.is_connected:
             raise DeviceNotConnectedError(f"{self} is not connected.")
 
@@ -524,13 +526,13 @@ class RealSenseCamera(Camera):
             )
 
         with self.frame_lock:
-            frame_dict = self.latest_frame.copy() if self.latest_frame is not None else None
+            frame = self.latest_frame
             self.new_frame_event.clear()
 
-        if frame_dict is None:
+        if frame is None:
             raise RuntimeError(f"Internal error: Event set but no frame available for {self}.")
 
-        return frame_dict
+        return frame
 
     def disconnect(self):
         """
