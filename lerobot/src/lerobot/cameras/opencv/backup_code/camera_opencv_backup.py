@@ -117,19 +117,9 @@ class OpenCVCamera(Camera):
         self.warmup_s = config.warmup_s
 
         self.videocapture: cv2.VideoCapture | None = None
-        # self.fourcc: cv2.VideoWriter_fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
-        # ====== XX代码：修改 fourcc 初始化 ======
-        # 使用配置的 fourcc，如果没有配置则使用默认 MJPG
-        if hasattr(config, 'fourcc') and config.fourcc:
-            # 确保 fourcc 字符串长度为4（如 'YUYV' -> 'Y','U','Y','V'）
-            if len(config.fourcc) == 4:
-                self.fourcc = cv2.VideoWriter_fourcc(*config.fourcc)
-            else:
-                logger.warning(f"Invalid fourcc format: {config.fourcc}, using default MJPG")
-                self.fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
-        else:
-            self.fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')  # 默认 MJPG
-        # ====== XX代码结束 ======
+        self.fourcc: cv2.VideoWriter_fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
+
+
 
 
 
@@ -261,29 +251,13 @@ class OpenCVCamera(Camera):
                 f"{self} failed to set capture_height={self.capture_height} ({actual_height=}, {height_success=})."
             )
 
-    # def _validate_fourcc(self) -> None:
-    #     """Validates and sets the camera's fourcc codec."""
-        
-    #     fourcc_succ = self.videocapture.set(cv2.CAP_PROP_FOURCC, self.fourcc)
-    #     actual_fourcc = self.videocapture.get(cv2.CAP_PROP_FOURCC)
-    #     if not fourcc_succ or actual_fourcc != self.fourcc:
-    #         raise RuntimeError(f"{self} failed to set fourcc={self.fourcc} ({actual_fourcc=}, {fourcc_succ=}).")
-
     def _validate_fourcc(self) -> None:
         """Validates and sets the camera's fourcc codec."""
         
         fourcc_succ = self.videocapture.set(cv2.CAP_PROP_FOURCC, self.fourcc)
         actual_fourcc = self.videocapture.get(cv2.CAP_PROP_FOURCC)
-        
-        # ====== XX代码：修改验证逻辑 ======
-        # 如果设置失败，记录警告但不抛出异常（为了兼容不同摄像头）
         if not fourcc_succ or actual_fourcc != self.fourcc:
-            logger.warning(f"{self} failed to set fourcc={self.fourcc} ({actual_fourcc=}, {fourcc_succ=}). "
-                        f"Continuing with camera default format.")
-            # 不再抛出异常，让程序继续运行
-        # ====== XX代码结束 ======
-
-
+            raise RuntimeError(f"{self} failed to set fourcc={self.fourcc} ({actual_fourcc=}, {fourcc_succ=}).")
 
     @staticmethod
     def find_cameras() -> list[dict[str, Any]]:

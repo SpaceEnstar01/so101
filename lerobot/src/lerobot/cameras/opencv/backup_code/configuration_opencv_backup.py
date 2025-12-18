@@ -56,9 +56,7 @@ class OpenCVCameraConfig(CameraConfig):
     rotation: Cv2Rotation = Cv2Rotation.NO_ROTATION
     warmup_s: int = 1
 
-    # ====== XX代码：新增 fourcc 支持 ======
-    fourcc: str = "MJPG"  # 默认 MJPG，支持 YUYV, YUY2, etc.
-    # ====== XX代码结束 ======
+
 
 
 

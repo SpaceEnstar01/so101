@@ -135,11 +135,7 @@ class ACTConfig(PreTrainedConfig):
     kl_weight: float = 10.0
 
     # Training preset
-    #optimizer_lr: float = 1e-5
-    # add by zexuan   0.00001 (1e-5)
-    optimizer_lr: float = 0.00005 #5倍 
-
-
+    optimizer_lr: float = 1e-5
     optimizer_weight_decay: float = 1e-4
     optimizer_lr_backbone: float = 1e-5
 

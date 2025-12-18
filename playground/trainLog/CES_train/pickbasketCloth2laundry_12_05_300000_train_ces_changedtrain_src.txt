@@ -1,0 +1,197 @@
+(lerobot) paris@x:~/X/so101/lerobot/src/lerobot$   tail -f train.log 
+INFO 2025-12-05 20:43:19 rain_ces.py:127 Creating dataset
+INFO 2025-12-05 20:43:21 rain_ces.py:138 Creating policy
+INFO 2025-12-05 20:43:21 rain_ces.py:144 Creating optimizer and scheduler
+INFO 2025-12-05 20:43:21 rain_ces.py:165 Output dir: /media/disk/A/X/data/Train_data/pickbasketCloth2laundry_12_05_300000_train_ces
+INFO 2025-12-05 20:43:21 rain_ces.py:168 cfg.steps=300000 (300K)
+INFO 2025-12-05 20:43:21 rain_ces.py:169 dataset.num_frames=139739 (140K)
+INFO 2025-12-05 20:43:21 rain_ces.py:170 dataset.num_episodes=127
+INFO 2025-12-05 20:43:21 rain_ces.py:171 num_learnable_params=51597190 (52M)
+INFO 2025-12-05 20:43:21 rain_ces.py:172 num_total_params=51597244 (52M)
+INFO 2025-12-05 20:43:21 rain_ces.py:211 Start offline training on a fixed dataset
+INFO 2025-12-05 20:51:37 rain_ces.py:241 step:2K smpl:32K ep:29 epch:0.23 loss:1.196 grdn:36.278 lr:5.0e-05 updt_s:0.246 data_s:0.001
+INFO 2025-12-05 20:59:49 rain_ces.py:241 step:4K smpl:64K ep:58 epch:0.46 loss:0.386 grdn:12.896 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 21:08:01 rain_ces.py:241 step:6K smpl:96K ep:87 epch:0.69 loss:0.301 grdn:8.765 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 21:16:13 rain_ces.py:241 step:8K smpl:128K ep:116 epch:0.92 loss:0.257 grdn:6.587 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 21:24:28 rain_ces.py:241 step:10K smpl:160K ep:145 epch:1.14 loss:0.228 grdn:5.365 lr:5.0e-05 updt_s:0.246 data_s:0.000
+INFO 2025-12-05 21:24:28 rain_ces.py:250 Checkpoint policy after step 10000
+INFO 2025-12-05 21:32:41 rain_ces.py:241 step:12K smpl:192K ep:174 epch:1.37 loss:0.208 grdn:4.571 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 21:40:54 rain_ces.py:241 step:14K smpl:224K ep:204 epch:1.60 loss:0.196 grdn:4.195 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 21:49:06 rain_ces.py:241 step:16K smpl:256K ep:233 epch:1.83 loss:0.185 grdn:3.752 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 21:57:19 rain_ces.py:241 step:18K smpl:288K ep:262 epch:2.06 loss:0.175 grdn:3.579 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 22:05:31 rain_ces.py:241 step:20K smpl:320K ep:291 epch:2.29 loss:0.164 grdn:3.104 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 22:05:31 rain_ces.py:250 Checkpoint policy after step 20000
+INFO 2025-12-05 22:13:45 rain_ces.py:241 step:22K smpl:352K ep:320 epch:2.52 loss:0.158 grdn:3.017 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 22:21:57 rain_ces.py:241 step:24K smpl:384K ep:349 epch:2.75 loss:0.152 grdn:2.852 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 22:30:09 rain_ces.py:241 step:26K smpl:416K ep:378 epch:2.98 loss:0.147 grdn:2.656 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 22:38:22 rain_ces.py:241 step:28K smpl:448K ep:407 epch:3.21 loss:0.141 grdn:2.648 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 22:46:34 rain_ces.py:241 step:30K smpl:480K ep:436 epch:3.43 loss:0.136 grdn:2.410 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 22:46:34 rain_ces.py:250 Checkpoint policy after step 30000
+INFO 2025-12-05 22:54:48 rain_ces.py:241 step:32K smpl:512K ep:465 epch:3.66 loss:0.133 grdn:2.436 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 23:03:00 rain_ces.py:241 step:34K smpl:544K ep:494 epch:3.89 loss:0.129 grdn:2.369 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 23:11:13 rain_ces.py:241 step:36K smpl:576K ep:523 epch:4.12 loss:0.126 grdn:2.372 lr:5.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-12-05 23:19:25 rain_ces.py:241 step:38K smpl:608K ep:553 epch:4.35 loss:0.122 grdn:2.311 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 23:27:37 rain_ces.py:241 step:40K smpl:640K ep:582 epch:4.58 loss:0.120 grdn:2.261 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 23:27:37 rain_ces.py:250 Checkpoint policy after step 40000
+INFO 2025-12-05 23:35:51 rain_ces.py:241 step:42K smpl:672K ep:611 epch:4.81 loss:0.117 grdn:2.030 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 23:44:04 rain_ces.py:241 step:44K smpl:704K ep:640 epch:5.04 loss:0.115 grdn:2.098 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-05 23:52:16 rain_ces.py:241 step:46K smpl:736K ep:669 epch:5.27 loss:0.112 grdn:2.002 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 00:00:28 rain_ces.py:241 step:48K smpl:768K ep:698 epch:5.50 loss:0.110 grdn:1.983 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 00:08:40 rain_ces.py:241 step:50K smpl:800K ep:727 epch:5.72 loss:0.109 grdn:1.963 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 00:08:40 rain_ces.py:250 Checkpoint policy after step 50000
+INFO 2025-12-06 00:16:53 rain_ces.py:241 step:52K smpl:832K ep:756 epch:5.95 loss:0.107 grdn:2.131 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 00:25:05 rain_ces.py:241 step:54K smpl:864K ep:785 epch:6.18 loss:0.104 grdn:1.911 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 00:33:17 rain_ces.py:241 step:56K smpl:896K ep:814 epch:6.41 loss:0.103 grdn:1.835 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 00:41:29 rain_ces.py:241 step:58K smpl:928K ep:843 epch:6.64 loss:0.102 grdn:1.835 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 00:49:41 rain_ces.py:241 step:60K smpl:960K ep:872 epch:6.87 loss:0.100 grdn:1.779 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 00:49:41 rain_ces.py:250 Checkpoint policy after step 60000
+INFO 2025-12-06 00:57:55 rain_ces.py:241 step:62K smpl:992K ep:902 epch:7.10 loss:0.098 grdn:1.809 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 01:06:07 rain_ces.py:241 step:64K smpl:1M ep:931 epch:7.33 loss:0.097 grdn:1.826 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 01:14:19 rain_ces.py:241 step:66K smpl:1M ep:960 epch:7.56 loss:0.096 grdn:1.790 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 01:22:31 rain_ces.py:241 step:68K smpl:1M ep:989 epch:7.79 loss:0.095 grdn:1.701 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 01:30:44 rain_ces.py:241 step:70K smpl:1M ep:1K epch:8.01 loss:0.094 grdn:1.695 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 01:30:44 rain_ces.py:250 Checkpoint policy after step 70000
+INFO 2025-12-06 01:38:57 rain_ces.py:241 step:72K smpl:1M ep:1K epch:8.24 loss:0.092 grdn:1.659 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 01:47:08 rain_ces.py:241 step:74K smpl:1M ep:1K epch:8.47 loss:0.090 grdn:1.640 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 01:55:20 rain_ces.py:241 step:76K smpl:1M ep:1K epch:8.70 loss:0.091 grdn:1.711 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 02:03:31 rain_ces.py:241 step:78K smpl:1M ep:1K epch:8.93 loss:0.090 grdn:1.653 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 02:11:43 rain_ces.py:241 step:80K smpl:1M ep:1K epch:9.16 loss:0.088 grdn:1.616 lr:5.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-12-06 02:11:43 rain_ces.py:250 Checkpoint policy after step 80000
+INFO 2025-12-06 02:19:56 rain_ces.py:241 step:82K smpl:1M ep:1K epch:9.39 loss:0.087 grdn:1.574 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 02:28:07 rain_ces.py:241 step:84K smpl:1M ep:1K epch:9.62 loss:0.086 grdn:1.587 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 02:36:18 rain_ces.py:241 step:86K smpl:1M ep:1K epch:9.85 loss:0.086 grdn:1.608 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 02:44:30 rain_ces.py:241 step:88K smpl:1M ep:1K epch:10.08 loss:0.085 grdn:1.702 lr:5.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-12-06 02:52:42 rain_ces.py:241 step:90K smpl:1M ep:1K epch:10.30 loss:0.084 grdn:1.551 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 02:52:42 rain_ces.py:250 Checkpoint policy after step 90000
+INFO 2025-12-06 03:00:54 rain_ces.py:241 step:92K smpl:1M ep:1K epch:10.53 loss:0.083 grdn:1.490 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 03:09:06 rain_ces.py:241 step:94K smpl:2M ep:1K epch:10.76 loss:0.083 grdn:1.595 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 03:17:17 rain_ces.py:241 step:96K smpl:2M ep:1K epch:10.99 loss:0.082 grdn:1.465 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 03:25:29 rain_ces.py:241 step:98K smpl:2M ep:1K epch:11.22 loss:0.081 grdn:1.539 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 03:33:40 rain_ces.py:241 step:100K smpl:2M ep:1K epch:11.45 loss:0.080 grdn:1.480 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 03:33:40 rain_ces.py:250 Checkpoint policy after step 100000
+INFO 2025-12-06 03:41:53 rain_ces.py:241 step:102K smpl:2M ep:1K epch:11.68 loss:0.080 grdn:1.475 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 03:50:04 rain_ces.py:241 step:104K smpl:2M ep:2K epch:11.91 loss:0.080 grdn:1.449 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 03:58:16 rain_ces.py:241 step:106K smpl:2M ep:2K epch:12.14 loss:0.078 grdn:1.440 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 04:06:27 rain_ces.py:241 step:108K smpl:2M ep:2K epch:12.37 loss:0.078 grdn:1.517 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 04:14:38 rain_ces.py:241 step:110K smpl:2M ep:2K epch:12.59 loss:0.077 grdn:1.423 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 04:14:38 rain_ces.py:250 Checkpoint policy after step 110000
+INFO 2025-12-06 04:22:51 rain_ces.py:241 step:112K smpl:2M ep:2K epch:12.82 loss:0.076 grdn:1.443 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 04:31:03 rain_ces.py:241 step:114K smpl:2M ep:2K epch:13.05 loss:0.076 grdn:1.377 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 04:39:14 rain_ces.py:241 step:116K smpl:2M ep:2K epch:13.28 loss:0.075 grdn:1.403 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 04:47:26 rain_ces.py:241 step:118K smpl:2M ep:2K epch:13.51 loss:0.075 grdn:1.446 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 04:55:37 rain_ces.py:241 step:120K smpl:2M ep:2K epch:13.74 loss:0.074 grdn:1.386 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 04:55:37 rain_ces.py:250 Checkpoint policy after step 120000
+INFO 2025-12-06 05:03:50 rain_ces.py:241 step:122K smpl:2M ep:2K epch:13.97 loss:0.074 grdn:1.380 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 05:12:03 rain_ces.py:241 step:124K smpl:2M ep:2K epch:14.20 loss:0.073 grdn:1.354 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 05:20:15 rain_ces.py:241 step:126K smpl:2M ep:2K epch:14.43 loss:0.073 grdn:1.390 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 05:28:27 rain_ces.py:241 step:128K smpl:2M ep:2K epch:14.66 loss:0.073 grdn:1.380 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 05:36:39 rain_ces.py:241 step:130K smpl:2M ep:2K epch:14.88 loss:0.072 grdn:1.350 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 05:36:39 rain_ces.py:250 Checkpoint policy after step 130000
+INFO 2025-12-06 05:44:53 rain_ces.py:241 step:132K smpl:2M ep:2K epch:15.11 loss:0.071 grdn:1.340 lr:5.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-12-06 05:53:05 rain_ces.py:241 step:134K smpl:2M ep:2K epch:15.34 loss:0.071 grdn:1.320 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 06:01:17 rain_ces.py:241 step:136K smpl:2M ep:2K epch:15.57 loss:0.070 grdn:1.380 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 06:09:29 rain_ces.py:241 step:138K smpl:2M ep:2K epch:15.80 loss:0.070 grdn:1.296 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 06:17:41 rain_ces.py:241 step:140K smpl:2M ep:2K epch:16.03 loss:0.070 grdn:1.352 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 06:17:41 rain_ces.py:250 Checkpoint policy after step 140000
+INFO 2025-12-06 06:25:54 rain_ces.py:241 step:142K smpl:2M ep:2K epch:16.26 loss:0.069 grdn:1.317 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 06:34:06 rain_ces.py:241 step:144K smpl:2M ep:2K epch:16.49 loss:0.069 grdn:1.293 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 06:42:17 rain_ces.py:241 step:146K smpl:2M ep:2K epch:16.72 loss:0.069 grdn:1.325 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 06:50:28 rain_ces.py:241 step:148K smpl:2M ep:2K epch:16.95 loss:0.068 grdn:1.302 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 06:58:41 rain_ces.py:241 step:150K smpl:2M ep:2K epch:17.17 loss:0.068 grdn:1.273 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 06:58:41 rain_ces.py:250 Checkpoint policy after step 150000
+INFO 2025-12-06 07:06:55 rain_ces.py:241 step:152K smpl:2M ep:2K epch:17.40 loss:0.067 grdn:1.273 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 07:15:07 rain_ces.py:241 step:154K smpl:2M ep:2K epch:17.63 loss:0.067 grdn:1.293 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 07:23:19 rain_ces.py:241 step:156K smpl:2M ep:2K epch:17.86 loss:0.067 grdn:1.282 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 07:31:31 rain_ces.py:241 step:158K smpl:3M ep:2K epch:18.09 loss:0.066 grdn:1.263 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 07:39:42 rain_ces.py:241 step:160K smpl:3M ep:2K epch:18.32 loss:0.066 grdn:1.258 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 07:39:42 rain_ces.py:250 Checkpoint policy after step 160000
+INFO 2025-12-06 07:47:55 rain_ces.py:241 step:162K smpl:3M ep:2K epch:18.55 loss:0.066 grdn:1.250 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 07:56:07 rain_ces.py:241 step:164K smpl:3M ep:2K epch:18.78 loss:0.066 grdn:1.250 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 08:04:19 rain_ces.py:241 step:166K smpl:3M ep:2K epch:19.01 loss:0.065 grdn:1.231 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 08:12:31 rain_ces.py:241 step:168K smpl:3M ep:2K epch:19.24 loss:0.065 grdn:1.230 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 08:20:43 rain_ces.py:241 step:170K smpl:3M ep:2K epch:19.46 loss:0.064 grdn:1.220 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 08:20:43 rain_ces.py:250 Checkpoint policy after step 170000
+INFO 2025-12-06 08:28:57 rain_ces.py:241 step:172K smpl:3M ep:3K epch:19.69 loss:0.064 grdn:1.212 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 08:37:09 rain_ces.py:241 step:174K smpl:3M ep:3K epch:19.92 loss:0.064 grdn:1.260 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 08:45:21 rain_ces.py:241 step:176K smpl:3M ep:3K epch:20.15 loss:0.063 grdn:1.299 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 08:53:33 rain_ces.py:241 step:178K smpl:3M ep:3K epch:20.38 loss:0.063 grdn:1.193 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 09:01:46 rain_ces.py:241 step:180K smpl:3M ep:3K epch:20.61 loss:0.063 grdn:1.222 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 09:01:46 rain_ces.py:250 Checkpoint policy after step 180000
+INFO 2025-12-06 09:09:59 rain_ces.py:241 step:182K smpl:3M ep:3K epch:20.84 loss:0.063 grdn:1.199 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 09:18:12 rain_ces.py:241 step:184K smpl:3M ep:3K epch:21.07 loss:0.063 grdn:1.186 lr:5.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-12-06 09:26:24 rain_ces.py:241 step:186K smpl:3M ep:3K epch:21.30 loss:0.062 grdn:1.181 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 09:34:36 rain_ces.py:241 step:188K smpl:3M ep:3K epch:21.53 loss:0.062 grdn:1.205 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 09:42:49 rain_ces.py:241 step:190K smpl:3M ep:3K epch:21.75 loss:0.062 grdn:1.203 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 09:42:49 rain_ces.py:250 Checkpoint policy after step 190000
+INFO 2025-12-06 09:51:02 rain_ces.py:241 step:192K smpl:3M ep:3K epch:21.98 loss:0.061 grdn:1.194 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 09:59:15 rain_ces.py:241 step:194K smpl:3M ep:3K epch:22.21 loss:0.060 grdn:1.157 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 10:07:27 rain_ces.py:241 step:196K smpl:3M ep:3K epch:22.44 loss:0.061 grdn:1.187 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 10:15:40 rain_ces.py:241 step:198K smpl:3M ep:3K epch:22.67 loss:0.060 grdn:1.142 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 10:23:52 rain_ces.py:241 step:200K smpl:3M ep:3K epch:22.90 loss:0.060 grdn:1.161 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 10:23:52 rain_ces.py:250 Checkpoint policy after step 200000
+INFO 2025-12-06 10:32:06 rain_ces.py:241 step:202K smpl:3M ep:3K epch:23.13 loss:0.060 grdn:1.166 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 10:40:18 rain_ces.py:241 step:204K smpl:3M ep:3K epch:23.36 loss:0.060 grdn:1.135 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 10:48:30 rain_ces.py:241 step:206K smpl:3M ep:3K epch:23.59 loss:0.060 grdn:1.158 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 10:56:43 rain_ces.py:241 step:208K smpl:3M ep:3K epch:23.82 loss:0.059 grdn:1.146 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 11:04:56 rain_ces.py:241 step:210K smpl:3M ep:3K epch:24.04 loss:0.059 grdn:1.137 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 11:04:56 rain_ces.py:250 Checkpoint policy after step 210000
+INFO 2025-12-06 11:13:10 rain_ces.py:241 step:212K smpl:3M ep:3K epch:24.27 loss:0.059 grdn:1.146 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 11:21:22 rain_ces.py:241 step:214K smpl:3M ep:3K epch:24.50 loss:0.058 grdn:1.124 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 11:29:34 rain_ces.py:241 step:216K smpl:3M ep:3K epch:24.73 loss:0.058 grdn:1.129 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 11:37:46 rain_ces.py:241 step:218K smpl:3M ep:3K epch:24.96 loss:0.059 grdn:1.136 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 11:45:59 rain_ces.py:241 step:220K smpl:4M ep:3K epch:25.19 loss:0.058 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 11:45:59 rain_ces.py:250 Checkpoint policy after step 220000
+INFO 2025-12-06 11:54:13 rain_ces.py:241 step:222K smpl:4M ep:3K epch:25.42 loss:0.057 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 12:02:25 rain_ces.py:241 step:224K smpl:4M ep:3K epch:25.65 loss:0.058 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 12:10:37 rain_ces.py:241 step:226K smpl:4M ep:3K epch:25.88 loss:0.057 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 12:18:50 rain_ces.py:241 step:228K smpl:4M ep:3K epch:26.11 loss:0.057 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 12:27:02 rain_ces.py:241 step:230K smpl:4M ep:3K epch:26.33 loss:0.057 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 12:27:02 rain_ces.py:250 Checkpoint policy after step 230000
+INFO 2025-12-06 12:35:17 rain_ces.py:241 step:232K smpl:4M ep:3K epch:26.56 loss:0.057 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 12:43:29 rain_ces.py:241 step:234K smpl:4M ep:3K epch:26.79 loss:0.057 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 12:51:42 rain_ces.py:241 step:236K smpl:4M ep:3K epch:27.02 loss:0.057 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 12:59:54 rain_ces.py:241 step:238K smpl:4M ep:3K epch:27.25 loss:0.056 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 13:08:06 rain_ces.py:241 step:240K smpl:4M ep:3K epch:27.48 loss:0.056 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 13:08:06 rain_ces.py:250 Checkpoint policy after step 240000
+INFO 2025-12-06 13:16:20 rain_ces.py:241 step:242K smpl:4M ep:4K epch:27.71 loss:0.056 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 13:24:33 rain_ces.py:241 step:244K smpl:4M ep:4K epch:27.94 loss:0.056 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 13:32:45 rain_ces.py:241 step:246K smpl:4M ep:4K epch:28.17 loss:0.055 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 13:40:58 rain_ces.py:241 step:248K smpl:4M ep:4K epch:28.40 loss:0.055 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 13:49:10 rain_ces.py:241 step:250K smpl:4M ep:4K epch:28.62 loss:0.055 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 13:49:10 rain_ces.py:250 Checkpoint policy after step 250000
+INFO 2025-12-06 13:57:24 rain_ces.py:241 step:252K smpl:4M ep:4K epch:28.85 loss:0.055 grdn:1.067 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 14:05:37 rain_ces.py:241 step:254K smpl:4M ep:4K epch:29.08 loss:0.055 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-12-06 14:13:50 rain_ces.py:241 step:256K smpl:4M ep:4K epch:29.31 loss:0.054 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 14:22:02 rain_ces.py:241 step:258K smpl:4M ep:4K epch:29.54 loss:0.055 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 14:30:14 rain_ces.py:241 step:260K smpl:4M ep:4K epch:29.77 loss:0.054 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 14:30:14 rain_ces.py:250 Checkpoint policy after step 260000
+INFO 2025-12-06 14:38:28 rain_ces.py:241 step:262K smpl:4M ep:4K epch:30.00 loss:0.054 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 14:46:41 rain_ces.py:241 step:264K smpl:4M ep:4K epch:30.23 loss:0.054 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 14:54:53 rain_ces.py:241 step:266K smpl:4M ep:4K epch:30.46 loss:0.054 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 15:03:05 rain_ces.py:241 step:268K smpl:4M ep:4K epch:30.69 loss:0.053 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 15:11:17 rain_ces.py:241 step:270K smpl:4M ep:4K epch:30.91 loss:0.054 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 15:11:17 rain_ces.py:250 Checkpoint policy after step 270000
+INFO 2025-12-06 15:19:32 rain_ces.py:241 step:272K smpl:4M ep:4K epch:31.14 loss:0.053 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-12-06 15:27:45 rain_ces.py:241 step:274K smpl:4M ep:4K epch:31.37 loss:0.053 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 15:35:57 rain_ces.py:241 step:276K smpl:4M ep:4K epch:31.60 loss:0.053 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 15:44:09 rain_ces.py:241 step:278K smpl:4M ep:4K epch:31.83 loss:0.053 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 15:52:22 rain_ces.py:241 step:280K smpl:4M ep:4K epch:32.06 loss:0.052 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 15:52:22 rain_ces.py:250 Checkpoint policy after step 280000
+INFO 2025-12-06 16:00:36 rain_ces.py:241 step:282K smpl:5M ep:4K epch:32.29 loss:0.052 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 16:08:48 rain_ces.py:241 step:284K smpl:5M ep:4K epch:32.52 loss:0.052 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 16:17:00 rain_ces.py:241 step:286K smpl:5M ep:4K epch:32.75 loss:0.052 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 16:25:13 rain_ces.py:241 step:288K smpl:5M ep:4K epch:32.98 loss:0.053 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 16:33:26 rain_ces.py:241 step:290K smpl:5M ep:4K epch:33.20 loss:0.052 grdn:1.013 lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 16:33:26 rain_ces.py:250 Checkpoint policy after step 290000
+INFO 2025-12-06 16:41:40 rain_ces.py:241 step:292K smpl:5M ep:4K epch:33.43 loss:0.052 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 16:49:52 rain_ces.py:241 step:294K smpl:5M ep:4K epch:33.66 loss:0.052 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 16:58:04 rain_ces.py:241 step:296K smpl:5M ep:4K epch:33.89 loss:0.051 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 17:06:17 rain_ces.py:241 step:298K smpl:5M ep:4K epch:34.12 loss:0.051 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-12-06 17:14:29 rain_ces.py:241 step:300K smpl:5M ep:4K epch:34.35 loss:0.051 grdn:nan lr:5.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-12-06 17:14:29 rain_ces.py:250 Checkpoint policy after step 300000
+INFO 2025-12-06 17:14:31 rain_ces.py:292 End of training
+
+
+
+
+

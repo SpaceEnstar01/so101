@@ -1,0 +1,284 @@
+(lerobot) paris@x:~/X/so101/lerobot/src/lerobot$     nohup python scripts/train.py \
+>   --dataset.repo_id=/home/paris/X/data/piper_data/xcar_arm_11_28 \
+>   --policy.type=act \
+>   --config_path=/media/disk/A/X/data/Train_data/xcar_arm_pickwashingCloth2basket_60000/checkpoints/060000/pretrained_model/train_config.json \
+>   --job_name=pickwashingCloth2basket_AddTrain\
+>   --policy.device=cuda \
+>   --batch_size=16 \
+>   --steps=200000 \
+>   --save_freq=2000 \
+>   --eval_freq=10000 \
+>   --log_freq=2000 \
+>   --resume=true \
+>   --policy.push_to_hub=false \
+>   > train.log 2>&1 &
+[1] 65774
+(lerobot) paris@x:~/X/so101/lerobot/src/lerobot$ tail -f train.log 
+nohup: ignoring input
+INFO 2025-11-29 13:48:17 ts/train.py:111 {'batch_size': 16,
+ 'dataset': {'episodes': None,
+             'image_transforms': {'enable': False,
+                                  'max_num_transforms': 3,
+                                  'random_order': False,
+                                  'tfs': {'brightness': {'kwargs': {'brightness': [0.8,
+                                                                                   1.2]},
+                                                         'type': 'ColorJitter',
+                                                         'weight': 1.0},
+                                          'contrast': {'kwargs': {'contrast': [0.8,
+                                                                               1.2]},
+                                                       'type': 'ColorJitter',
+                                                       'weight': 1.0},
+                                          'hue': {'kwargs': {'hue': [-0.05,
+                                                                     0.05]},
+                                                  'type': 'ColorJitter',
+                                                  'weight': 1.0},
+                                          'saturation': {'kwargs': {'saturation': [0.5,
+                                                                                   1.5]},
+                                                         'type': 'ColorJitter',
+                                                         'weight': 1.0},
+                                          'sharpness': {'kwargs': {'sharpness': [0.5,
+                                                                                 1.5]},
+                                                        'type': 'SharpnessJitter',
+                                                        'weight': 1.0}}},
+             'repo_id': '/home/paris/X/data/piper_data/xcar_arm_11_28',
+             'revision': None,
+             'root': None,
+             'use_imagenet_stats': True,
+             'video_backend': 'torchcodec'},
+ 'env': None,
+ 'eval': {'batch_size': 50, 'n_episodes': 50, 'use_async_envs': False},
+ 'eval_freq': 10000,
+ 'job_name': 'pickwashingCloth2basket_AddTrain',
+ 'log_freq': 2000,
+ 'num_workers': 4,
+ 'optimizer': {'betas': [0.9, 0.999],
+               'eps': 1e-08,
+               'grad_clip_norm': 10.0,
+               'lr': 1e-05,
+               'type': 'adamw',
+               'weight_decay': 0.0001},
+ 'output_dir': '/media/disk/A/X/data/Train_data/xcar_arm_pickwashingCloth2basket_60000',
+ 'policy': {'chunk_size': 100,
+            'device': 'cuda',
+            'dim_feedforward': 3200,
+            'dim_model': 512,
+            'dropout': 0.1,
+            'feedforward_activation': 'relu',
+            'input_features': {'observation.images.extra': {'shape': [3,
+                                                                      480,
+                                                                      640],
+                                                            'type': <FeatureType.VISUAL: 'VISUAL'>},
+                               'observation.images.fixed': {'shape': [3,
+                                                                      480,
+                                                                      640],
+                                                            'type': <FeatureType.VISUAL: 'VISUAL'>},
+                               'observation.images.handeye': {'shape': [3,
+                                                                        480,
+                                                                        848],
+                                                              'type': <FeatureType.VISUAL: 'VISUAL'>},
+                               'observation.state': {'shape': [6],
+                                                     'type': <FeatureType.STATE: 'STATE'>}},
+            'kl_weight': 10.0,
+            'latent_dim': 32,
+            'license': None,
+            'n_action_steps': 100,
+            'n_decoder_layers': 1,
+            'n_encoder_layers': 4,
+            'n_heads': 8,
+            'n_obs_steps': 1,
+            'n_vae_encoder_layers': 4,
+            'normalization_mapping': {'ACTION': <NormalizationMode.MEAN_STD: 'MEAN_STD'>,
+                                      'STATE': <NormalizationMode.MEAN_STD: 'MEAN_STD'>,
+                                      'VISUAL': <NormalizationMode.MEAN_STD: 'MEAN_STD'>},
+            'optimizer_lr': 1e-05,
+            'optimizer_lr_backbone': 1e-05,
+            'optimizer_weight_decay': 0.0001,
+            'output_features': {'action': {'shape': [6],
+                                           'type': <FeatureType.ACTION: 'ACTION'>}},
+            'pre_norm': False,
+            'pretrained_backbone_weights': 'ResNet18_Weights.IMAGENET1K_V1',
+            'private': None,
+            'push_to_hub': False,
+            'replace_final_stride_with_dilation': 0,
+            'repo_id': None,
+            'tags': None,
+            'temporal_ensemble_coeff': None,
+            'type': 'act',
+            'use_amp': False,
+            'use_vae': True,
+            'vision_backbone': 'resnet18'},
+ 'resume': True,
+ 'save_checkpoint': True,
+ 'save_freq': 2000,
+ 'scheduler': None,
+ 'seed': 1000,
+ 'steps': 200000,
+ 'use_policy_training_preset': True,
+ 'wandb': {'disable_artifact': False,
+           'enable': False,
+           'entity': None,
+           'mode': None,
+           'notes': None,
+           'project': 'lerobot',
+           'run_id': None}}
+INFO 2025-11-29 13:48:17 ts/train.py:117 Logs will be saved locally.
+INFO 2025-11-29 13:48:17 ts/train.py:127 Creating dataset
+Downloading data: 100%|██████████| 62/62 [00:00<00:00, 572790.41files/s]
+Generating train split: 82654 examples [00:00, 1150333.49 examples/s]
+INFO 2025-11-29 13:48:18 ts/train.py:138 Creating policy
+INFO 2025-11-29 13:48:19 ts/train.py:144 Creating optimizer and scheduler
+INFO 2025-11-29 13:48:19 ts/train.py:156 Output dir: /media/disk/A/X/data/Train_data/xcar_arm_pickwashingCloth2basket_60000
+INFO 2025-11-29 13:48:19 ts/train.py:159 cfg.steps=200000 (200K)
+INFO 2025-11-29 13:48:19 ts/train.py:160 dataset.num_frames=82654 (83K)
+INFO 2025-11-29 13:48:19 ts/train.py:161 dataset.num_episodes=62
+INFO 2025-11-29 13:48:19 ts/train.py:162 num_learnable_params=51597190 (52M)
+INFO 2025-11-29 13:48:19 ts/train.py:163 num_total_params=51597244 (52M)
+INFO 2025-11-29 13:48:19 ts/train.py:202 Start offline training on a fixed dataset
+Loading weights from local directory
+INFO 2025-11-29 13:56:32 ts/train.py:232 step:62K smpl:992K ep:744 epch:12.00 loss:0.144 grdn:5.874 lr:1.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-11-29 13:56:32 ts/train.py:241 Checkpoint policy after step 62000
+INFO 2025-11-29 14:04:45 ts/train.py:232 step:64K smpl:1M ep:768 epch:12.39 loss:0.117 grdn:5.445 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 14:04:45 ts/train.py:241 Checkpoint policy after step 64000
+INFO 2025-11-29 14:12:59 ts/train.py:232 step:66K smpl:1M ep:792 epch:12.78 loss:0.108 grdn:5.409 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 14:12:59 ts/train.py:241 Checkpoint policy after step 66000
+INFO 2025-11-29 14:21:11 ts/train.py:232 step:68K smpl:1M ep:816 epch:13.16 loss:0.101 grdn:5.093 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 14:21:11 ts/train.py:241 Checkpoint policy after step 68000
+INFO 2025-11-29 14:29:24 ts/train.py:232 step:70K smpl:1M ep:840 epch:13.55 loss:0.098 grdn:5.022 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 14:29:24 ts/train.py:241 Checkpoint policy after step 70000
+INFO 2025-11-29 14:37:37 ts/train.py:232 step:72K smpl:1M ep:864 epch:13.94 loss:0.094 grdn:4.957 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 14:37:37 ts/train.py:241 Checkpoint policy after step 72000
+INFO 2025-11-29 14:45:49 ts/train.py:232 step:74K smpl:1M ep:888 epch:14.32 loss:0.092 grdn:4.856 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 14:45:49 ts/train.py:241 Checkpoint policy after step 74000
+INFO 2025-11-29 14:54:02 ts/train.py:232 step:76K smpl:1M ep:912 epch:14.71 loss:0.090 grdn:4.820 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 14:54:02 ts/train.py:241 Checkpoint policy after step 76000
+INFO 2025-11-29 15:02:15 ts/train.py:232 step:78K smpl:1M ep:936 epch:15.10 loss:0.087 grdn:4.728 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 15:02:15 ts/train.py:241 Checkpoint policy after step 78000
+INFO 2025-11-29 15:10:27 ts/train.py:232 step:80K smpl:1M ep:960 epch:15.49 loss:0.086 grdn:4.615 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 15:10:27 ts/train.py:241 Checkpoint policy after step 80000
+INFO 2025-11-29 15:18:41 ts/train.py:232 step:82K smpl:1M ep:984 epch:15.87 loss:0.084 grdn:4.677 lr:1.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-11-29 15:18:41 ts/train.py:241 Checkpoint policy after step 82000
+INFO 2025-11-29 15:26:53 ts/train.py:232 step:84K smpl:1M ep:1K epch:16.26 loss:0.083 grdn:4.571 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 15:26:53 ts/train.py:241 Checkpoint policy after step 84000
+INFO 2025-11-29 15:35:06 ts/train.py:232 step:86K smpl:1M ep:1K epch:16.65 loss:0.082 grdn:4.567 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 15:35:06 ts/train.py:241 Checkpoint policy after step 86000
+INFO 2025-11-29 15:43:19 ts/train.py:232 step:88K smpl:1M ep:1K epch:17.03 loss:0.080 grdn:4.408 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 15:43:19 ts/train.py:241 Checkpoint policy after step 88000
+INFO 2025-11-29 15:51:31 ts/train.py:232 step:90K smpl:1M ep:1K epch:17.42 loss:0.079 grdn:4.404 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 15:51:31 ts/train.py:241 Checkpoint policy after step 90000
+INFO 2025-11-29 15:59:44 ts/train.py:232 step:92K smpl:1M ep:1K epch:17.81 loss:0.078 grdn:4.300 lr:1.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-11-29 15:59:44 ts/train.py:241 Checkpoint policy after step 92000
+INFO 2025-11-29 16:07:56 ts/train.py:232 step:94K smpl:2M ep:1K epch:18.20 loss:0.077 grdn:4.245 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 16:07:56 ts/train.py:241 Checkpoint policy after step 94000
+INFO 2025-11-29 16:16:09 ts/train.py:232 step:96K smpl:2M ep:1K epch:18.58 loss:0.076 grdn:4.269 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 16:16:09 ts/train.py:241 Checkpoint policy after step 96000
+INFO 2025-11-29 16:24:22 ts/train.py:232 step:98K smpl:2M ep:1K epch:18.97 loss:0.075 grdn:4.175 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 16:24:22 ts/train.py:241 Checkpoint policy after step 98000
+INFO 2025-11-29 16:32:34 ts/train.py:232 step:100K smpl:2M ep:1K epch:19.36 loss:0.074 grdn:4.164 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 16:32:34 ts/train.py:241 Checkpoint policy after step 100000
+INFO 2025-11-29 16:40:48 ts/train.py:232 step:102K smpl:2M ep:1K epch:19.74 loss:0.073 grdn:4.111 lr:1.0e-05 updt_s:0.245 data_s:0.001
+INFO 2025-11-29 16:40:48 ts/train.py:241 Checkpoint policy after step 102000
+INFO 2025-11-29 16:49:00 ts/train.py:232 step:104K smpl:2M ep:1K epch:20.13 loss:0.072 grdn:4.055 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 16:49:00 ts/train.py:241 Checkpoint policy after step 104000
+INFO 2025-11-29 16:57:12 ts/train.py:232 step:106K smpl:2M ep:1K epch:20.52 loss:0.072 grdn:4.059 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 16:57:12 ts/train.py:241 Checkpoint policy after step 106000
+INFO 2025-11-29 17:05:25 ts/train.py:232 step:108K smpl:2M ep:1K epch:20.91 loss:0.070 grdn:3.970 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 17:05:25 ts/train.py:241 Checkpoint policy after step 108000
+INFO 2025-11-29 17:13:37 ts/train.py:232 step:110K smpl:2M ep:1K epch:21.29 loss:0.070 grdn:3.921 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 17:13:37 ts/train.py:241 Checkpoint policy after step 110000
+INFO 2025-11-29 17:21:50 ts/train.py:232 step:112K smpl:2M ep:1K epch:21.68 loss:0.069 grdn:3.897 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 17:21:50 ts/train.py:241 Checkpoint policy after step 112000
+INFO 2025-11-29 17:30:03 ts/train.py:232 step:114K smpl:2M ep:1K epch:22.07 loss:0.068 grdn:3.844 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 17:30:03 ts/train.py:241 Checkpoint policy after step 114000
+INFO 2025-11-29 17:38:15 ts/train.py:232 step:116K smpl:2M ep:1K epch:22.46 loss:0.068 grdn:3.901 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 17:38:15 ts/train.py:241 Checkpoint policy after step 116000
+INFO 2025-11-29 17:46:28 ts/train.py:232 step:118K smpl:2M ep:1K epch:22.84 loss:0.067 grdn:3.869 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 17:46:28 ts/train.py:241 Checkpoint policy after step 118000
+INFO 2025-11-29 17:54:40 ts/train.py:232 step:120K smpl:2M ep:1K epch:23.23 loss:0.066 grdn:3.778 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 17:54:40 ts/train.py:241 Checkpoint policy after step 120000
+INFO 2025-11-29 18:02:54 ts/train.py:232 step:122K smpl:2M ep:1K epch:23.62 loss:0.066 grdn:3.826 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 18:02:54 ts/train.py:241 Checkpoint policy after step 122000
+INFO 2025-11-29 18:11:06 ts/train.py:232 step:124K smpl:2M ep:1K epch:24.00 loss:0.065 grdn:3.727 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 18:11:06 ts/train.py:241 Checkpoint policy after step 124000
+INFO 2025-11-29 18:19:18 ts/train.py:232 step:126K smpl:2M ep:2K epch:24.39 loss:0.065 grdn:3.684 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 18:19:18 ts/train.py:241 Checkpoint policy after step 126000
+INFO 2025-11-29 18:27:31 ts/train.py:232 step:128K smpl:2M ep:2K epch:24.78 loss:0.064 grdn:3.734 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 18:27:31 ts/train.py:241 Checkpoint policy after step 128000
+INFO 2025-11-29 18:35:44 ts/train.py:232 step:130K smpl:2M ep:2K epch:25.17 loss:0.064 grdn:3.684 lr:1.0e-05 updt_s:0.245 data_s:0.000
+INFO 2025-11-29 18:35:44 ts/train.py:241 Checkpoint policy after step 130000
+INFO 2025-11-29 18:43:56 ts/train.py:232 step:132K smpl:2M ep:2K epch:25.55 loss:0.063 grdn:3.653 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 18:43:56 ts/train.py:241 Checkpoint policy after step 132000
+INFO 2025-11-29 18:52:09 ts/train.py:232 step:134K smpl:2M ep:2K epch:25.94 loss:0.062 grdn:3.599 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 18:52:09 ts/train.py:241 Checkpoint policy after step 134000
+INFO 2025-11-29 19:00:21 ts/train.py:232 step:136K smpl:2M ep:2K epch:26.33 loss:0.062 grdn:3.558 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 19:00:21 ts/train.py:241 Checkpoint policy after step 136000
+INFO 2025-11-29 19:08:34 ts/train.py:232 step:138K smpl:2M ep:2K epch:26.71 loss:0.062 grdn:3.562 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 19:08:34 ts/train.py:241 Checkpoint policy after step 138000
+INFO 2025-11-29 19:16:47 ts/train.py:232 step:140K smpl:2M ep:2K epch:27.10 loss:0.061 grdn:3.516 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 19:16:47 ts/train.py:241 Checkpoint policy after step 140000
+INFO 2025-11-29 19:24:59 ts/train.py:232 step:142K smpl:2M ep:2K epch:27.49 loss:0.061 grdn:3.546 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 19:24:59 ts/train.py:241 Checkpoint policy after step 142000
+INFO 2025-11-29 19:33:12 ts/train.py:232 step:144K smpl:2M ep:2K epch:27.88 loss:0.060 grdn:3.521 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 19:33:12 ts/train.py:241 Checkpoint policy after step 144000
+INFO 2025-11-29 19:41:25 ts/train.py:232 step:146K smpl:2M ep:2K epch:28.26 loss:0.060 grdn:3.516 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 19:41:25 ts/train.py:241 Checkpoint policy after step 146000
+INFO 2025-11-29 19:49:38 ts/train.py:232 step:148K smpl:2M ep:2K epch:28.65 loss:0.060 grdn:3.462 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 19:49:38 ts/train.py:241 Checkpoint policy after step 148000
+INFO 2025-11-29 19:57:50 ts/train.py:232 step:150K smpl:2M ep:2K epch:29.04 loss:0.059 grdn:3.459 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 19:57:50 ts/train.py:241 Checkpoint policy after step 150000
+INFO 2025-11-29 20:06:02 ts/train.py:232 step:152K smpl:2M ep:2K epch:29.42 loss:0.059 grdn:3.464 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 20:06:02 ts/train.py:241 Checkpoint policy after step 152000
+INFO 2025-11-29 20:14:15 ts/train.py:232 step:154K smpl:2M ep:2K epch:29.81 loss:0.058 grdn:3.419 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 20:14:15 ts/train.py:241 Checkpoint policy after step 154000
+INFO 2025-11-29 20:22:27 ts/train.py:232 step:156K smpl:2M ep:2K epch:30.20 loss:0.058 grdn:3.414 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 20:22:27 ts/train.py:241 Checkpoint policy after step 156000
+INFO 2025-11-29 20:30:40 ts/train.py:232 step:158K smpl:3M ep:2K epch:30.59 loss:0.058 grdn:3.372 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 20:30:40 ts/train.py:241 Checkpoint policy after step 158000
+INFO 2025-11-29 20:38:53 ts/train.py:232 step:160K smpl:3M ep:2K epch:30.97 loss:0.057 grdn:3.342 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 20:38:53 ts/train.py:241 Checkpoint policy after step 160000
+INFO 2025-11-29 20:47:05 ts/train.py:232 step:162K smpl:3M ep:2K epch:31.36 loss:0.057 grdn:3.343 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 20:47:05 ts/train.py:241 Checkpoint policy after step 162000
+INFO 2025-11-29 20:55:18 ts/train.py:232 step:164K smpl:3M ep:2K epch:31.75 loss:0.056 grdn:3.323 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 20:55:18 ts/train.py:241 Checkpoint policy after step 164000
+INFO 2025-11-29 21:03:31 ts/train.py:232 step:166K smpl:3M ep:2K epch:32.13 loss:0.056 grdn:3.311 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 21:03:31 ts/train.py:241 Checkpoint policy after step 166000
+INFO 2025-11-29 21:11:43 ts/train.py:232 step:168K smpl:3M ep:2K epch:32.52 loss:0.056 grdn:3.295 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 21:11:43 ts/train.py:241 Checkpoint policy after step 168000
+INFO 2025-11-29 21:19:56 ts/train.py:232 step:170K smpl:3M ep:2K epch:32.91 loss:0.055 grdn:3.320 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 21:19:56 ts/train.py:241 Checkpoint policy after step 170000
+INFO 2025-11-29 21:28:08 ts/train.py:232 step:172K smpl:3M ep:2K epch:33.30 loss:0.055 grdn:3.215 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 21:28:08 ts/train.py:241 Checkpoint policy after step 172000
+INFO 2025-11-29 21:36:21 ts/train.py:232 step:174K smpl:3M ep:2K epch:33.68 loss:0.055 grdn:3.261 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 21:36:21 ts/train.py:241 Checkpoint policy after step 174000
+INFO 2025-11-29 21:44:34 ts/train.py:232 step:176K smpl:3M ep:2K epch:34.07 loss:0.054 grdn:3.200 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 21:44:34 ts/train.py:241 Checkpoint policy after step 176000
+INFO 2025-11-29 21:52:46 ts/train.py:232 step:178K smpl:3M ep:2K epch:34.46 loss:0.054 grdn:3.238 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 21:52:46 ts/train.py:241 Checkpoint policy after step 178000
+INFO 2025-11-29 22:00:59 ts/train.py:232 step:180K smpl:3M ep:2K epch:34.84 loss:0.054 grdn:3.203 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 22:00:59 ts/train.py:241 Checkpoint policy after step 180000
+INFO 2025-11-29 22:09:11 ts/train.py:232 step:182K smpl:3M ep:2K epch:35.23 loss:0.053 grdn:3.133 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 22:09:11 ts/train.py:241 Checkpoint policy after step 182000
+INFO 2025-11-29 22:17:24 ts/train.py:232 step:184K smpl:3M ep:2K epch:35.62 loss:0.053 grdn:3.146 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 22:17:24 ts/train.py:241 Checkpoint policy after step 184000
+INFO 2025-11-29 22:25:36 ts/train.py:232 step:186K smpl:3M ep:2K epch:36.01 loss:0.052 grdn:3.128 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 22:25:36 ts/train.py:241 Checkpoint policy after step 186000
+INFO 2025-11-29 22:33:49 ts/train.py:232 step:188K smpl:3M ep:2K epch:36.39 loss:0.052 grdn:3.126 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 22:33:49 ts/train.py:241 Checkpoint policy after step 188000
+INFO 2025-11-29 22:42:02 ts/train.py:232 step:190K smpl:3M ep:2K epch:36.78 loss:0.052 grdn:3.168 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 22:42:02 ts/train.py:241 Checkpoint policy after step 190000
+INFO 2025-11-29 22:50:14 ts/train.py:232 step:192K smpl:3M ep:2K epch:37.17 loss:0.052 grdn:3.182 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 22:50:14 ts/train.py:241 Checkpoint policy after step 192000
+INFO 2025-11-29 22:58:26 ts/train.py:232 step:194K smpl:3M ep:2K epch:37.55 loss:0.052 grdn:3.099 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 22:58:26 ts/train.py:241 Checkpoint policy after step 194000
+INFO 2025-11-29 23:06:39 ts/train.py:232 step:196K smpl:3M ep:2K epch:37.94 loss:0.051 grdn:3.093 lr:1.0e-05 updt_s:0.244 data_s:0.001
+INFO 2025-11-29 23:06:39 ts/train.py:241 Checkpoint policy after step 196000
+INFO 2025-11-29 23:14:52 ts/train.py:232 step:198K smpl:3M ep:2K epch:38.33 loss:0.051 grdn:3.113 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 23:14:52 ts/train.py:241 Checkpoint policy after step 198000
+INFO 2025-11-29 23:23:05 ts/train.py:232 step:200K smpl:3M ep:2K epch:38.72 loss:0.051 grdn:3.105 lr:1.0e-05 updt_s:0.244 data_s:0.000
+INFO 2025-11-29 23:23:05 ts/train.py:241 Checkpoint policy after step 200000
+INFO 2025-11-29 23:23:06 ts/train.py:283 End of training
+
+
+
+
+
+
