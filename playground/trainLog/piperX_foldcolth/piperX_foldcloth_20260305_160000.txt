@@ -1,0 +1,128 @@
+
+
+
+
+(lerobot) paris@x:~/X/so101/lerobot/src/lerobot$  nohup python scripts/train.py \
+>   --dataset.repo_id=/home/paris/X/data/piperX/bi_piperX_March3_feifan_data00 \
+>   --policy.type=act \
+>   --output_dir=/media/disk/A/X/data/train_piperX/piperX_foldcloth_March5_160000 \
+>   --job_name=foldcloth\
+>   --policy.device=cuda \
+>   --batch_size=16 \
+>   --steps=160000 \
+>   --save_freq=10000 \
+>   --eval_freq=5000 \
+>   --log_freq=2000 \
+>   --policy.push_to_hub=false \
+>   > train.log 2>&1 &
+[1] 86608
+(lerobot) paris@x:~/X/so101/lerobot/src/lerobot$ tail -f train.log 
+Generating train split: 213743 examples [00:00, 1264024.59 examples/s]
+INFO 2026-03-05 21:24:07 ts/train.py:138 Creating policy
+INFO 2026-03-05 21:24:07 ts/train.py:144 Creating optimizer and scheduler
+INFO 2026-03-05 21:24:07 ts/train.py:156 Output dir: /media/disk/A/X/data/train_piperX/piperX_foldcloth_March5_160000
+INFO 2026-03-05 21:24:07 ts/train.py:159 cfg.steps=160000 (160K)
+INFO 2026-03-05 21:24:07 ts/train.py:160 dataset.num_frames=213743 (214K)
+INFO 2026-03-05 21:24:07 ts/train.py:161 dataset.num_episodes=113
+INFO 2026-03-05 21:24:07 ts/train.py:162 num_learnable_params=51609484 (52M)
+INFO 2026-03-05 21:24:07 ts/train.py:163 num_total_params=51609580 (52M)
+INFO 2026-03-05 21:24:07 ts/train.py:202 Start offline training on a fixed dataset
+INFO 2026-03-05 21:34:39 ts/train.py:232 step:2K smpl:32K ep:17 epch:0.15 loss:1.282 grdn:36.899 lr:5.0e-05 updt_s:0.314 data_s:0.001
+INFO 2026-03-05 21:45:14 ts/train.py:232 step:4K smpl:64K ep:34 epch:0.30 loss:0.458 grdn:13.007 lr:5.0e-05 updt_s:0.317 data_s:0.000
+INFO 2026-03-05 21:55:28 ts/train.py:232 step:6K smpl:96K ep:51 epch:0.45 loss:0.380 grdn:8.807 lr:5.0e-05 updt_s:0.306 data_s:0.000
+INFO 2026-03-05 22:05:33 ts/train.py:232 step:8K smpl:128K ep:68 epch:0.60 loss:0.335 grdn:6.558 lr:5.0e-05 updt_s:0.302 data_s:0.000
+INFO 2026-03-05 22:15:36 ts/train.py:232 step:10K smpl:160K ep:85 epch:0.75 loss:0.310 grdn:5.398 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-05 22:15:36 ts/train.py:241 Checkpoint policy after step 10000
+INFO 2026-03-05 22:25:40 ts/train.py:232 step:12K smpl:192K ep:102 epch:0.90 loss:0.289 grdn:4.520 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-05 22:35:44 ts/train.py:232 step:14K smpl:224K ep:118 epch:1.05 loss:0.269 grdn:4.123 lr:5.0e-05 updt_s:0.301 data_s:0.001
+INFO 2026-03-05 22:45:46 ts/train.py:232 step:16K smpl:256K ep:135 epch:1.20 loss:0.255 grdn:3.678 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-05 22:55:48 ts/train.py:232 step:18K smpl:288K ep:152 epch:1.35 loss:0.244 grdn:3.357 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-05 23:05:50 ts/train.py:232 step:20K smpl:320K ep:169 epch:1.50 loss:0.235 grdn:3.097 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-05 23:05:50 ts/train.py:241 Checkpoint policy after step 20000
+INFO 2026-03-05 23:15:54 ts/train.py:232 step:22K smpl:352K ep:186 epch:1.65 loss:0.226 grdn:3.151 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-05 23:25:56 ts/train.py:232 step:24K smpl:384K ep:203 epch:1.80 loss:0.220 grdn:2.896 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-05 23:35:58 ts/train.py:232 step:26K smpl:416K ep:220 epch:1.95 loss:0.212 grdn:2.740 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-05 23:46:01 ts/train.py:232 step:28K smpl:448K ep:237 epch:2.10 loss:0.203 grdn:2.594 lr:5.0e-05 updt_s:0.300 data_s:0.001
+INFO 2026-03-05 23:56:03 ts/train.py:232 step:30K smpl:480K ep:254 epch:2.25 loss:0.197 grdn:2.590 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-05 23:56:03 ts/train.py:241 Checkpoint policy after step 30000
+INFO 2026-03-06 00:06:07 ts/train.py:232 step:32K smpl:512K ep:271 epch:2.40 loss:0.192 grdn:2.406 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 00:16:10 ts/train.py:232 step:34K smpl:544K ep:288 epch:2.55 loss:0.187 grdn:2.267 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 00:26:12 ts/train.py:232 step:36K smpl:576K ep:305 epch:2.69 loss:0.183 grdn:2.141 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 00:36:14 ts/train.py:232 step:38K smpl:608K ep:321 epch:2.84 loss:0.179 grdn:2.473 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 00:46:16 ts/train.py:232 step:40K smpl:640K ep:338 epch:2.99 loss:0.176 grdn:2.337 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 00:46:16 ts/train.py:241 Checkpoint policy after step 40000
+INFO 2026-03-06 00:56:21 ts/train.py:232 step:42K smpl:672K ep:355 epch:3.14 loss:0.168 grdn:2.005 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 01:06:23 ts/train.py:232 step:44K smpl:704K ep:372 epch:3.29 loss:0.166 grdn:2.088 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 01:16:25 ts/train.py:232 step:46K smpl:736K ep:389 epch:3.44 loss:0.164 grdn:2.125 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 01:26:27 ts/train.py:232 step:48K smpl:768K ep:406 epch:3.59 loss:0.160 grdn:2.073 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 01:36:29 ts/train.py:232 step:50K smpl:800K ep:423 epch:3.74 loss:0.158 grdn:1.831 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 01:36:29 ts/train.py:241 Checkpoint policy after step 50000
+INFO 2026-03-06 01:46:33 ts/train.py:232 step:52K smpl:832K ep:440 epch:3.89 loss:0.155 grdn:1.953 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 01:56:36 ts/train.py:232 step:54K smpl:864K ep:457 epch:4.04 loss:0.152 grdn:1.941 lr:5.0e-05 updt_s:0.300 data_s:0.001
+INFO 2026-03-06 02:06:38 ts/train.py:232 step:56K smpl:896K ep:474 epch:4.19 loss:0.148 grdn:1.755 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 02:16:40 ts/train.py:232 step:58K smpl:928K ep:491 epch:4.34 loss:0.147 grdn:1.918 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 02:26:43 ts/train.py:232 step:60K smpl:960K ep:508 epch:4.49 loss:0.144 grdn:1.788 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 02:26:43 ts/train.py:241 Checkpoint policy after step 60000
+INFO 2026-03-06 02:36:46 ts/train.py:232 step:62K smpl:992K ep:524 epch:4.64 loss:0.143 grdn:1.673 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 02:46:49 ts/train.py:232 step:64K smpl:1M ep:541 epch:4.79 loss:0.141 grdn:1.701 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 02:56:51 ts/train.py:232 step:66K smpl:1M ep:558 epch:4.94 loss:0.139 grdn:1.721 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 03:06:54 ts/train.py:232 step:68K smpl:1M ep:575 epch:5.09 loss:0.137 grdn:1.749 lr:5.0e-05 updt_s:0.300 data_s:0.001
+INFO 2026-03-06 03:16:56 ts/train.py:232 step:70K smpl:1M ep:592 epch:5.24 loss:0.134 grdn:1.648 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 03:16:56 ts/train.py:241 Checkpoint policy after step 70000
+INFO 2026-03-06 03:26:59 ts/train.py:232 step:72K smpl:1M ep:609 epch:5.39 loss:0.133 grdn:1.575 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 03:37:01 ts/train.py:232 step:74K smpl:1M ep:626 epch:5.54 loss:0.131 grdn:1.581 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 03:47:03 ts/train.py:232 step:76K smpl:1M ep:643 epch:5.69 loss:0.131 grdn:1.760 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 03:57:06 ts/train.py:232 step:78K smpl:1M ep:660 epch:5.84 loss:0.130 grdn:1.573 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 04:07:08 ts/train.py:232 step:80K smpl:1M ep:677 epch:5.99 loss:0.128 grdn:1.573 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 04:07:08 ts/train.py:241 Checkpoint policy after step 80000
+INFO 2026-03-06 04:17:13 ts/train.py:232 step:82K smpl:1M ep:694 epch:6.14 loss:0.124 grdn:1.510 lr:5.0e-05 updt_s:0.300 data_s:0.001
+INFO 2026-03-06 04:27:15 ts/train.py:232 step:84K smpl:1M ep:711 epch:6.29 loss:0.124 grdn:1.537 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 04:37:17 ts/train.py:232 step:86K smpl:1M ep:727 epch:6.44 loss:0.123 grdn:1.517 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 04:47:19 ts/train.py:232 step:88K smpl:1M ep:744 epch:6.59 loss:0.123 grdn:1.527 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 04:57:22 ts/train.py:232 step:90K smpl:1M ep:761 epch:6.74 loss:0.121 grdn:1.456 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 04:57:22 ts/train.py:241 Checkpoint policy after step 90000
+INFO 2026-03-06 05:07:26 ts/train.py:232 step:92K smpl:1M ep:778 epch:6.89 loss:0.120 grdn:1.452 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 05:17:29 ts/train.py:232 step:94K smpl:2M ep:795 epch:7.04 loss:0.118 grdn:1.413 lr:5.0e-05 updt_s:0.300 data_s:0.001
+INFO 2026-03-06 05:27:31 ts/train.py:232 step:96K smpl:2M ep:812 epch:7.19 loss:0.116 grdn:1.423 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 05:37:33 ts/train.py:232 step:98K smpl:2M ep:829 epch:7.34 loss:0.116 grdn:1.442 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 05:47:35 ts/train.py:232 step:100K smpl:2M ep:846 epch:7.49 loss:0.116 grdn:1.386 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 05:47:35 ts/train.py:241 Checkpoint policy after step 100000
+INFO 2026-03-06 05:57:39 ts/train.py:232 step:102K smpl:2M ep:863 epch:7.64 loss:0.115 grdn:1.423 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 06:07:41 ts/train.py:232 step:104K smpl:2M ep:880 epch:7.79 loss:0.114 grdn:1.345 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 06:17:44 ts/train.py:232 step:106K smpl:2M ep:897 epch:7.93 loss:0.113 grdn:1.367 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 06:27:47 ts/train.py:232 step:108K smpl:2M ep:914 epch:8.08 loss:0.111 grdn:1.353 lr:5.0e-05 updt_s:0.300 data_s:0.001
+INFO 2026-03-06 06:37:49 ts/train.py:232 step:110K smpl:2M ep:930 epch:8.23 loss:0.110 grdn:1.376 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 06:37:49 ts/train.py:241 Checkpoint policy after step 110000
+INFO 2026-03-06 06:47:53 ts/train.py:232 step:112K smpl:2M ep:947 epch:8.38 loss:0.110 grdn:1.321 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 06:57:55 ts/train.py:232 step:114K smpl:2M ep:964 epch:8.53 loss:0.108 grdn:1.301 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 07:07:57 ts/train.py:232 step:116K smpl:2M ep:981 epch:8.68 loss:0.109 grdn:1.311 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 07:17:59 ts/train.py:232 step:118K smpl:2M ep:998 epch:8.83 loss:0.108 grdn:1.282 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 07:28:01 ts/train.py:232 step:120K smpl:2M ep:1K epch:8.98 loss:0.107 grdn:1.280 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 07:28:01 ts/train.py:241 Checkpoint policy after step 120000
+INFO 2026-03-06 07:38:06 ts/train.py:232 step:122K smpl:2M ep:1K epch:9.13 loss:0.106 grdn:1.334 lr:5.0e-05 updt_s:0.300 data_s:0.001
+INFO 2026-03-06 07:48:08 ts/train.py:232 step:124K smpl:2M ep:1K epch:9.28 loss:0.105 grdn:1.252 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 07:58:11 ts/train.py:232 step:126K smpl:2M ep:1K epch:9.43 loss:0.104 grdn:1.260 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 08:08:13 ts/train.py:232 step:128K smpl:2M ep:1K epch:9.58 loss:0.104 grdn:1.281 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 08:18:15 ts/train.py:232 step:130K smpl:2M ep:1K epch:9.73 loss:0.104 grdn:1.256 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 08:18:15 ts/train.py:241 Checkpoint policy after step 130000
+INFO 2026-03-06 08:28:19 ts/train.py:232 step:132K smpl:2M ep:1K epch:9.88 loss:0.103 grdn:1.268 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 08:38:22 ts/train.py:232 step:134K smpl:2M ep:1K epch:10.03 loss:0.102 grdn:1.238 lr:5.0e-05 updt_s:0.300 data_s:0.001
+INFO 2026-03-06 08:48:24 ts/train.py:232 step:136K smpl:2M ep:1K epch:10.18 loss:0.101 grdn:1.219 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 08:58:26 ts/train.py:232 step:138K smpl:2M ep:1K epch:10.33 loss:0.101 grdn:1.245 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 09:08:29 ts/train.py:232 step:140K smpl:2M ep:1K epch:10.48 loss:0.100 grdn:1.228 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 09:08:29 ts/train.py:241 Checkpoint policy after step 140000
+INFO 2026-03-06 09:18:33 ts/train.py:232 step:142K smpl:2M ep:1K epch:10.63 loss:0.100 grdn:1.212 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 09:28:35 ts/train.py:232 step:144K smpl:2M ep:1K epch:10.78 loss:0.099 grdn:1.209 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 09:38:37 ts/train.py:232 step:146K smpl:2M ep:1K epch:10.93 loss:0.099 grdn:1.220 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 09:48:40 ts/train.py:232 step:148K smpl:2M ep:1K epch:11.08 loss:0.098 grdn:1.182 lr:5.0e-05 updt_s:0.300 data_s:0.001
+INFO 2026-03-06 09:58:43 ts/train.py:232 step:150K smpl:2M ep:1K epch:11.23 loss:0.097 grdn:1.149 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 09:58:43 ts/train.py:241 Checkpoint policy after step 150000
+INFO 2026-03-06 10:08:47 ts/train.py:232 step:152K smpl:2M ep:1K epch:11.38 loss:0.096 grdn:1.182 lr:5.0e-05 updt_s:0.300 data_s:0.000
+INFO 2026-03-06 10:18:53 ts/train.py:232 step:154K smpl:2M ep:1K epch:11.53 loss:0.096 grdn:1.151 lr:5.0e-05 updt_s:0.302 data_s:0.000
+INFO 2026-03-06 10:29:02 ts/train.py:232 step:156K smpl:2M ep:1K epch:11.68 loss:0.096 grdn:1.169 lr:5.0e-05 updt_s:0.304 data_s:0.000
+INFO 2026-03-06 10:39:09 ts/train.py:232 step:158K smpl:3M ep:1K epch:11.83 loss:0.096 grdn:1.156 lr:5.0e-05 updt_s:0.302 data_s:0.000
+INFO 2026-03-06 10:49:17 ts/train.py:232 step:160K smpl:3M ep:1K epch:11.98 loss:0.095 grdn:1.141 lr:5.0e-05 updt_s:0.304 data_s:0.000
+INFO 2026-03-06 10:49:17 ts/train.py:241 Checkpoint policy after step 160000
+INFO 2026-03-06 10:49:19 ts/train.py:283 End of training
+
+
